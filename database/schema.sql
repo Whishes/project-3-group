@@ -12,7 +12,7 @@ CREATE TABLE holidays (
   date_end DATE,
   location_name TEXT,
   img_link TEXT
-)
+);
 
 CREATE TABLE holiday_parts (
   id SERIAL PRIMARY KEY,
@@ -22,7 +22,7 @@ CREATE TABLE holiday_parts (
   date_end DATE,
   location_name TEXT,
   img_link TEXT,
-)
+);
 
 CREATE TABLE events (
   id SERIAL PRIMARY KEY,
@@ -31,6 +31,6 @@ CREATE TABLE events (
   location_name TEXT,
   img_link TEXT,
   event_description TEXT, 
-)
+);
 
 
