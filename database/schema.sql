@@ -21,7 +21,7 @@ CREATE TABLE holiday_parts (
   date_start DATE,
   date_end DATE,
   location_name TEXT,
-  img_link TEXT,
+  img_link TEXT
 );
 
 CREATE TABLE events (
@@ -30,7 +30,7 @@ CREATE TABLE events (
   event_name TEXT,
   location_name TEXT,
   img_link TEXT,
-  event_description TEXT, 
+  event_description TEXT
 );
 
 
