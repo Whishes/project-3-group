@@ -3,7 +3,7 @@ require("dotenv").config();
 const connectionString = process.env.CONNECTION_STRING;
 
 const db = new pg.Pool({
-	database: "scavenger_hunt",
+	database: "travel_diary",
 	connectionString,
 });
 
