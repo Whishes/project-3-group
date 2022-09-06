@@ -1,4 +1,19 @@
-const isLoggedIn = true;
-// add axios request to check if user is logged in and pass through a bool if true etc
+let isLoggedIn = false;
 
-renderHeader(isLoggedIn);
+axios
+	.get("/api/session")
+	.then((response) => {
+		// if user is logged in do this
+		isLoggedIn = false;
+		const user = response.data;
+
+		renderHeader(isLoggedIn, user);
+		renderHomePage(isLoggedIn);
+	})
+	.catch((err) => {
+		// if user isn't logged in do this
+		//console.log(err);
+		isLoggedIn = true;
+		renderHeader(isLoggedIn);
+		renderHomePage(isLoggedIn);
+	});
