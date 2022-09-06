@@ -35,3 +35,5 @@ const renderHeader = (isLoggedIn, user) => {
 	}
 	return;
 };
+
+module.exports = renderHeader;
