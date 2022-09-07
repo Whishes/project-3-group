@@ -5,6 +5,7 @@ require("dotenv").config();
 // file imports
 const sessionController = require("./controllers/session");
 const signupController = require("./controllers/signup");
+const holidaysController = require("./controllers/holidays");
 const db = require("./database/db");
 const { expressSession, pgSession } = require("./session");
 
@@ -32,6 +33,7 @@ app.use(express.static("client"));
 // routes
 app.use("/api/signup", signupController);
 app.use("/api/session", sessionController);
+app.use("/api/holidays", holidaysController);
 
 // start the web server
 app.listen(port, () => {
