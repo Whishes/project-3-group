@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+/* Color Themes */
+:root {
+    --primary-theme: #3CB043;
+    --primary-font: #FFFFFF;
+    --secondary-theme: #74330B;
+    --secondary-hover: #80471C;
+    --primary-error: #D10000;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--primary-theme);
+    color: var(--primary-font);
+}
+
+a {
+    color: var(--primary-font);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+a:hover {
+    cursor: pointer;
+    color: var(--secondary-theme)
+}
+
+button {
+    all: unset;
+    border-radius: 20px;
+    background-color: var(--secondary-theme);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: var(--secondary-hover);
+}
+
+#header-nav {
+    height: 10vh;
+    display: flex;
+    padding-left: 1em;
+    padding-right: 1em;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#navlist {
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#navlist > button {
+    width: 120px;
+    height: 40px;
+}
+
+/* adds a margin to the last element in the li tag to give it proper spacing*/
+#navlist > li:nth-child(n+2) {
+    margin-left: 1em;
+}
