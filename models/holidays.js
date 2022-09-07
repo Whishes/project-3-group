@@ -16,7 +16,7 @@ const Holidays = {
     deleteOne: (holidayId) => {
         const sql = `DELETE FROM holidays WHERE id = $1`;
         return db.query(sql, [holidayId]).then((dbRes) => dbRes.rows);
-    },
+    }
 };
 
 module.exports = Holidays;
