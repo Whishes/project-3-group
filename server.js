@@ -3,10 +3,10 @@ const express = require("express");
 require("dotenv").config();
 
 // file imports
+const db = require("./database/db");
 const sessionController = require("./controllers/session");
 const signupController = require("./controllers/signup");
 const holidaysController = require("./controllers/holidays");
-const db = require("./database/db");
 const { expressSession, pgSession } = require("./session");
 
 // express stuff

@@ -17,7 +17,7 @@ router.delete("/:id", (req, res) => {
     Holidays.deleteOne(holidayId)
     .then(() => res.json({success: true }))
     .catch((error) => {
-        res.status(500).json({message: 'holiday ID does not exist'});
+        res.status(500).json({message: 'holiday does not exist'});
     });
 }); 
 
@@ -27,5 +27,8 @@ router.get("/getAll", (req, res) => {
 });
 
 router.get("/getOne/:id", (req, res) => {
-    Holidays.getOne(req.params.id).then((holidayRows) => res.json(holidayRows));
+    Holidays.getOne(req.params.id)
+    .then((holidayRows) => res.json(holidayRows));
 });
+
+module.exports = router;
