@@ -3,9 +3,10 @@ const express = require("express");
 require("dotenv").config();
 
 // file imports
+const db = require("./database/db");
 const sessionController = require("./controllers/session");
 const signupController = require("./controllers/signup");
-const db = require("./database/db");
+const holidaysController = require("./controllers/holidays");
 const { expressSession, pgSession } = require("./session");
 
 // express stuff
@@ -32,6 +33,7 @@ app.use(express.static("client"));
 // routes
 app.use("/api/signup", signupController);
 app.use("/api/session", sessionController);
+app.use("/api/holidays", holidaysController);
 
 // start the web server
 app.listen(port, () => {
