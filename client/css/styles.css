@@ -18,6 +18,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--primary-theme);
     color: var(--primary-font);
+    height: 100vh;
 }
 
 a {
@@ -69,5 +70,33 @@ button:hover {
 
 /* adds a margin to the last element in the li tag to give it proper spacing*/
 #navlist > li:nth-child(n+2) {
+    margin-left: 1em;
+}
+
+#page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+#oops {
+    font-size: 4em;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
+}
+
+#subheading-container {
+    display: flex;
+    align-items: center;
+    margin-left: 3em;
+}
+
+#subheading-container h2 {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
+}
+
+#subheading-container button {
+    width: 120px;
+    height: 40px;
     margin-left: 1em;
 }

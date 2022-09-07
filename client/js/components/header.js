@@ -33,7 +33,6 @@ const renderHeader = (isLoggedIn, user) => {
      </ul>
     `;
 	}
-	return;
 };
 
 module.exports = renderHeader;
