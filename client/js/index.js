@@ -1,5 +1,17 @@
 let isLoggedIn = false;
 
+// dummy data
+const data = {
+	email: "janedoe@email.com",
+	password: "test",
+};
+
+// dummy login to test card creationn
+axios
+	.post("/api/session", data)
+	.then((res) => console.log(res))
+	.catch((err) => alert(err));
+
 axios
 	.get("/api/session")
 	.then((response) => {

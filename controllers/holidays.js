@@ -3,9 +3,7 @@ const router = express.Router();
 const Holidays = require("../models/holidays");
 
 router.get("/", (req, res) => {
-	const userId = req.session.id;
-	console.log("user-id:", userId);
-	console.log("session:", req.session);
+	const userId = req.session.userid;
 
 	if (!userId) {
 		return res.status(401).send({ message: "Not logged in" });
