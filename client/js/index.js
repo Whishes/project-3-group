@@ -9,7 +9,7 @@ const data = {
 // dummy login to test card creationn
 axios
 	.post("/api/session", data)
-	.then((res) => console.log("login:", res))
+	.then()
 	.catch((err) => alert("not logged in:", err));
 
 axios

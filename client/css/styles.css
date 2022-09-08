@@ -106,7 +106,6 @@ button:hover {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -150,6 +149,10 @@ button:hover {
 .btn-bottom button {
     width: 120px;
     height: 40px;
+}
+
+#delete-btn {
+    background-color: var(--primary-error);
 }
 
 .card-top img {

@@ -9,11 +9,13 @@ const renderCard = (holiday) => {
 						<div>
 							<h2>${holiday.holiday_name}</h2>
 							<h4>${holiday.location_name}</h4>
-							<p>${holiday.date_start} to ${holiday.date_end}<p>
+							<p>${moment(holiday.date_start).format("MMM Do YY")} - ${moment(
+		holiday.date_start
+	).format("MMM Do YY")}</p>
 						</div>
 						<div class="btn-bottom">
-							<button>Edit</button>
-							<button>Delete</button>
+							<button id="edit-btn" onClick="alert('edit function')">Edit</button>
+							<button id="delete-btn" onClick="alert('delete function')">Delete</button>
 						</div>
 					</div>
 					`;
