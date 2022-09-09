@@ -1,38 +1,31 @@
 const renderRegistrationForm = () => {
-    const page = document.getElementById("page")
-    
-    page.innerHTML = `
+    const page = document.getElementById("page");
+    const form = document.createElement("form");
+    form.innerHTML = `
         <section id="registration">
             <form id="registration-form" action="">
                 <h2>Glad to have you here!</h2>
                 <p>Register to continue</p>
                 <section id="error-msgs"></section>
-                <fieldset>
-                    <label for="firstname">First Name</label>
-                    <input type="text" name="firstname">
-                </fieldset>
-                <fieldset>
-                    <label for="surname">Surname</label>
-                    <input type="text" name="surname">
-                </fieldset>
-                <fieldset>
-                    <label for="username">Username</label>
-                    <input type="text" name="username">
-                </fieldset>
-                <fieldset>
-                    <label for="email">Email</label>
-                    <input type="text" name="email">
-                </fieldset>
-                <fieldset>
-                    <label for="">Password</label>
-                    <input type="password" name="password">
-                </fieldset>
-                <button>Register</button>
-            </form>
-            <p>Already have an account?</p> <button>Login</button>
-        </section>`};
+                    
+                    <input type="text" id="firstname" class="name-field" name="firstname" placeholder="First Name">
+                    
+                    <input type="text" id="surname" class="name-field" name="surname" placeholder="Surname">
+                   
+                    <input type="text" id="username" name="username" placeholder="Username">
+                   
+                    <input type="text" id="email" name="email" placeholder="Email">
+                 
+                    <input type="password" id="password" name="password" placeholder="Password">
 
-        const form = document.getElementById("registration-form");
+                    <div>
+                    <span>Already have an account?</span> <button id="register">Register</button> 
+                    </div>
+                  
+            </form>
+            
+        </section>`
+
         form.addEventListener("submit", (event) => {
             event.preventDefault();
             const formData = new FormData(form);
@@ -49,6 +42,10 @@ const renderRegistrationForm = () => {
             alert(err.response.data.message);
             });
         });
+        page.replaceChildren(form);
+    };
+
+        
        
 
 module.exports = renderRegistrationForm;
