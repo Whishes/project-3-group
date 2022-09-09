@@ -39,7 +39,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primary-font) !important;
+    color: var(--primary-font);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -138,6 +138,10 @@ button:hover {
     margin-right: 1em;
 }
 
+.card-bottom > div > h2 > a {
+    color: var(--primary-theme);
+}
+
 .btn-bottom {
     display: flex;
     justify-content: space-evenly;
@@ -149,10 +153,15 @@ button:hover {
 .btn-bottom button {
     width: 120px;
     height: 40px;
+
+    background-color: var(--primary-font);
+    box-shadow: none;
+    color: var(--secondary-theme);
 }
 
 #delete-btn {
-    background-color: var(--primary-error);
+    /* background-color: var(--primary-error); */
+    color: var(--primary-error);
 }
 
 .card-top img {
@@ -161,3 +170,10 @@ button:hover {
     object-fit: cover;
 }
 
+.line {
+    height: 100%;
+    width: 2px;
+    background-color: var(--primary-theme);
+    box-shadow: inset 1px 1px 1px #113B08;
+    border-radius: 5px;
+}
