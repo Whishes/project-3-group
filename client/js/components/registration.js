@@ -9,14 +9,18 @@ const renderRegistrationForm = () => {
                 <section id="error-msgs"></section>
                 <fieldset>
                     <label for="firstname">First Name</label>
-                    <input type="text" name="first-name">
+                    <input type="text" name="firstname">
                 </fieldset>
                 <fieldset>
                     <label for="surname">Surname</label>
                     <input type="text" name="surname">
                 </fieldset>
                 <fieldset>
-                    <label for="">Email</label>
+                    <label for="username">Username</label>
+                    <input type="text" name="username">
+                </fieldset>
+                <fieldset>
+                    <label for="email">Email</label>
                     <input type="text" name="email">
                 </fieldset>
                 <fieldset>
@@ -33,8 +37,9 @@ const renderRegistrationForm = () => {
             event.preventDefault();
             const formData = new FormData(form);
             const data = {
-                // firstName: formData.get("firstname"),
-                // surname: formData.get("surname"),
+                firstname: formData.get("firstname"),
+                surname: formData.get("surname"),
+                username: formData.get("username"),
                 email: formData.get("email"),
                 password: formData.get("password")
             };
