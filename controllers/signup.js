@@ -7,11 +7,15 @@ const Signup = require("../models/signup");
 router.post("/", (req, res) => {
 	// console.log(req.body)
 	const { firstname, surname, username, email, password } = req.body;
+	
+	if (!firstname || !surname || !email || !password || !username) {
+		return res.status(400).json({message: "one of the fields is empty"})
+	}
 
 	const hashedPassword = generateHash(password);
 
 	Signup.newAcc(firstname, surname, username, email, hashedPassword)
-		.then(() => res.status(200).json({"success": true}))
+		.then(() => res.status(200).json({"success": true}) )
 		.catch((err) => res.sendStatus(500));
 });
 
