@@ -213,7 +213,6 @@ button:hover {
 
     #registration {
         width: 500px;
-        margin-left: 150px;
         margin-top: 150px;
         flex-wrap: wrap;
     }
@@ -227,7 +226,7 @@ button:hover {
         }
 
         #registration > p {
-            /* padding-bottom: 20px; */
+            padding-bottom: 10px;
             padding-left: 10px;
             font-size: 20px;
             color: var(--primary-font); 

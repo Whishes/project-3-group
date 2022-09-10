@@ -1,6 +1,4 @@
-
-
-const renderRegistrationForm = require("./registration.js");
+import { renderRegistrationForm } from "./components/registration.js";
 
 // Test that registration form renders correctly
 

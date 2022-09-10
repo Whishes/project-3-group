@@ -1,4 +1,4 @@
-const renderRegistrationForm = () => {
+export const renderRegistrationForm = () => {
     const page = document.getElementById("page");
     const form = document.createElement("form");
     form.innerHTML = `
@@ -54,19 +54,14 @@ const renderRegistrationForm = () => {
             };
 
             if (!data.firstname || !data.surname || !data.email || !data.password || !data.username) {
-                return alert( "one of the fields is empty");
+                return alert( "One of the fields is empty");
             } else {
                 axios.post("api/signup", data).then(() => {
                     location = "/";
                 }).catch((err) => {
-                errorMsg.textContent = err.response.data.message;
+                    errorBar(err.response.data.message, "error");
                 });
             }});
         
         page.replaceChildren(form);
     };
-
-        
-       
-
-module.exports = renderRegistrationForm;
