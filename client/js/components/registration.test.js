@@ -1,5 +1,6 @@
-const renderRegistrationForm = require("./registration.js");
 
+
+const renderRegistrationForm = require("./registration.js");
 
 // Test that registration form renders correctly
 
@@ -20,6 +21,7 @@ test('renderRegistrationForm should render 1 form with a heading, 5 inputs and 1
 // Test that correctly filled form returns successful response
 
 test('When all fields filled out with username & email unique, returns 200 status', () => {
+    
 
 })
 
