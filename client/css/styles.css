@@ -83,7 +83,7 @@ button:hover {
 
     #registration {
         width: 500px;
-        margin-left: 300px;
+        margin-left: 150px;
         margin-top: 150px;
         flex-wrap: wrap;
     }
@@ -104,7 +104,7 @@ button:hover {
         }
 
     /* div/input field styling */
-        #registration > .div-input-field {
+        .div-input-field {
             background-color: white;
             border: 2px solid var(--secondary-theme);
             border-radius: 2px;
@@ -113,7 +113,7 @@ button:hover {
             margin: 10px 10px 10px 0px;
         }
 
-        #registration > div > .icon {
+        div > .icon {
             width: 50px;
             background-color: white;
             color: var(--secondary-theme);
@@ -121,7 +121,7 @@ button:hover {
         }
 
 
-        #registration > div > input {
+        div > input {
             height: 50px;
             border: none;
         }
@@ -134,15 +134,25 @@ button:hover {
             outline: none;
         }
 
-
-        /* styling specific to first name and surname fields  */
-            #registration > .name-field {
-                width: 199px;
-                display: inline-block;
+        /* styling specific to long fields i.e. username, email, password */
+            div > .long-input {
+                width: 356px;
             }
 
-            #registration > #surname {
+
+        /* styling specific to first name and surname fields  */
+            .name-field {
+                width: 199px;
+                display: inline-block;
+                margin-bottom: 0px;
+            }
+
+            #surname {
                 text-align: center;
+            }
+
+            div > .short-input {
+                width: 140px;
             }
 
 
