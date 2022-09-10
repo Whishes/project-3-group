@@ -1,5 +1,11 @@
-import { renderHeader } from "./components/header.js";
+import { renderHeader, logOut } from "./components/header.js";
 import { renderHomePage } from "./components/homePage.js";
+import { errorBar } from "./components/renderErrorBar.js";
+
+// global function imports
+window.errorBar = errorBar;
+window.logOut = logOut;
+
 let isLoggedIn = false;
 
 // dummy data
