@@ -4,21 +4,37 @@ const renderRegistrationForm = () => {
     form.innerHTML = `
         <section id="registration">
             <form id="registration-form" action="">
+
                 <h2>Glad to have you here!</h2>
                 <p>Register to continue</p>
-                <section id="error-msgs"></section>
-                    
-                    <input type="text" id="firstname" class="name-field" name="firstname" placeholder="First Name">
-                    
-                    <input type="text" id="surname" class="name-field" name="surname" placeholder="Surname">
-                   
-                    <input type="text" id="username" name="username" placeholder="Username">
-                   
-                    <input type="text" id="email" name="email" placeholder="Email">
-                 
-                    <input type="password" id="password" name="password" placeholder="Password">
 
-                    <div>
+                <section id="error-msgs"></section>
+
+                    <div class="div-input-field name-field">
+                    <i class="fa-solid fa-user icon"></i>
+                    <input type="text" name="firstname" placeholder="First Name">
+                    </div>
+                    
+                    <div class="div-input-field name-field" id="surname">
+                    <input type="text" name="surname" placeholder="Surname">
+                    </div>
+                   
+                    <div class="div-input-field">
+                    <i class="fa-solid fa-face-smile icon"></i>
+                    <input type="text" name="username" placeholder="Username">
+                    </div>
+                   
+                    <div class="div-input-field">
+                    <i class="fa-solid fa-envelope icon"></i>
+                    <input type="text" name="email" placeholder="Email">
+                    </div>
+
+                    <div class="div-input-field">
+                    <i class="fa-solid fa-lock icon"></i>
+                    <input type="password" name="password" placeholder="Password">
+                    </div>
+
+                    <div id="registration-base">
                     <span>Already have an account?</span> <button id="register">Register</button> 
                     </div>
                   
