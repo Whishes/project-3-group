@@ -9,9 +9,9 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   firstname TEXT NOT NULL,
   surname TEXT NOT NULL,
-  username TEXT NOT NULL,
+  username TEXT UNIQUE NOT NULL,
   email TEXT UNIQUE NOT NULL,
-  password TEXT
+  password TEXT NOT NULL
 );
 
 CREATE TABLE holidays (
