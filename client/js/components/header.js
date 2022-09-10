@@ -1,4 +1,6 @@
-const logOut = () => {
+import { errorBar } from "./renderErrorBar.js";
+
+export const logOut = () => {
 	axios
 		.delete("/api/session")
 		.then((response) => {
@@ -6,10 +8,9 @@ const logOut = () => {
 			location.href = "/";
 		})
 		.catch((err) => {
-			console.log(err);
+			errorBar("Log out unsuccessful", "error");
 		});
 };
-window.logOut = logOut;
 
 export const renderHeader = (isLoggedIn, user) => {
 	const header = document.getElementById("header-nav");
