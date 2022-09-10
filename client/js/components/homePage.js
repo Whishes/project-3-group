@@ -15,12 +15,24 @@ export const renderHomePage = (isLoggedIn) => {
 				container.innerHTML = "";
 				//console.log("holiday res:", response);
 				const data = response.data;
-
-				data.forEach((holiday) => {
-					// creates a card element using the holiday object passed as a parameter
-					const cardElement = renderCard(holiday);
-					container.appendChild(cardElement);
-				});
+				// check if there are tables in the array
+				if (response.status === 204) {
+					container.innerHTML = `
+		<div>
+			<h1 id="oops">Oops! No content could be found...</h1>
+			<div id="subheading-container">
+				<h2 id="subheading">Add new holiday?</h2>
+				<button onClick="renderNewTrip()">New Trip</button>
+			</div>
+		</div>
+		`;
+				} else {
+					data.forEach((holiday) => {
+						// creates a card element using the holiday object passed as a parameter
+						const cardElement = renderCard(holiday);
+						container.appendChild(cardElement);
+					});
+				}
 			})
 			.catch((err) => {
 				//console.log("holidays api:", err);

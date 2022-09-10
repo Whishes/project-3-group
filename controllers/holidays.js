@@ -9,7 +9,13 @@ router.get("/", (req, res) => {
 		return res.status(401).send({ message: "Not logged in" });
 	}
 
-	Holidays.getAllForUser(userId).then((holidayRows) => res.json(holidayRows));
+	Holidays.getAllForUser(userId).then((holidayRows) => {
+		if (holidayRows.length > 0) {
+			res.json(holidayRows).status(200);
+		} else {
+			res.json(holidayRows).status(204);
+		}
+	});
 });
 
 router.delete("/:id", (req, res) => {
