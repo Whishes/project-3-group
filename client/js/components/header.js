@@ -9,15 +9,16 @@ const logOut = () => {
 			console.log(err);
 		});
 };
+window.logOut = logOut;
 
-const renderHeader = (isLoggedIn, user) => {
+export const renderHeader = (isLoggedIn, user) => {
 	const header = document.getElementById("header-nav");
 	if (isLoggedIn) {
 		// if user is logged in
 		header.innerHTML = `
      <h1><a href="/">Travel Diary</a></h1>
      <ul id="navlist">
-        <p>Logged in as ${user.email}</p>
+	 
         <button onClick="renderNewTrip()">New Trip</button>
         <li><a onClick="renderProfile()">Profile</a></li>
         <li><a onClick="logOut()">Logout</a></li>
@@ -33,7 +34,4 @@ const renderHeader = (isLoggedIn, user) => {
      </ul>
     `;
 	}
-	return;
 };
-
-module.exports = renderHeader;
