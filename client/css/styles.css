@@ -97,10 +97,18 @@ button:hover {
         }
 
         #registration > p {
-            padding-bottom: 20px;
+            /* padding-bottom: 20px; */
             padding-left: 10px;
             font-size: 20px;
             color: var(--primary-font); 
+        }
+
+        #error-msgs {
+            height: 20px;
+            padding: 5px 5px 5px 5px !important;
+            margin-left: 10px;
+            color: red !important;
+            font-size: 15px !important;
         }
 
     /* div/input field styling */
@@ -131,7 +139,7 @@ button:hover {
         }
 
         *:focus {
-            outline-color: var(--primary-theme);
+            outline: none;
         }
 
         /* styling specific to long fields i.e. username, email, password */

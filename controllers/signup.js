@@ -16,7 +16,11 @@ router.post("/", (req, res) => {
 
 	Signup.newAcc(firstname, surname, username, email, hashedPassword)
 		.then(() => res.status(200).json({"success": true}) )
-		.catch((err) => res.sendStatus(500));
+		.catch((err) => {
+			console.log(err)
+			if (err.code === "23505") {
+				res.status(400).json({message: "Sorry, this username or email is already taken"})
+		  	} else {res.sendStatus(500)}});
 });
 
 module.exports = router;

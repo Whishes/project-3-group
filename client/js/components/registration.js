@@ -8,7 +8,7 @@ const renderRegistrationForm = () => {
                 <h2>Glad to have you here!</h2>
                 <p>Register to continue</p>
 
-                <section id="error-msgs"></section>
+                <p id="error-msgs"></p>
 
                     <div class="div-input-field name-field">
                     <i class="fa-solid fa-user icon"></i>
@@ -59,7 +59,7 @@ const renderRegistrationForm = () => {
                 axios.post("api/signup", data).then(() => {
                     location = "/";
                 }).catch((err) => {
-                alert(err.response.data.message);
+                errorMsg.textContent = err.response.data.message;
                 });
             }});
         
