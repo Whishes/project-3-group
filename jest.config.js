@@ -1,10 +1,11 @@
-const moment = require("moment");
 const axios = require("axios");
+const moment = require("moment");
 
+// prettier-ignore
 module.exports = {
 	testEnvironment: "jsdom",
 	globals: {
-		axios: axios,
 		moment: moment,
+		axios: axios
 	},
 };
