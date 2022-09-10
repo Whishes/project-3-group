@@ -31,7 +31,7 @@ export const renderHeader = (isLoggedIn, user) => {
      <h1><a href="/">Travel Diary</a></h1>
      <ul id="navlist">
         <li><a href="login.html">Login</a></li>
-        <li><a href="register.html">Register</a></li>
+        <li><a onClick="renderRegistrationForm()">Register</a></li>
      </ul>
     `;
 	}
