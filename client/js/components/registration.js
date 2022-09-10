@@ -12,26 +12,26 @@ const renderRegistrationForm = () => {
 
                     <div class="div-input-field name-field">
                     <i class="fa-solid fa-user icon"></i>
-                    <input type="text" name="firstname" placeholder="First Name">
+                    <input class="short-input" type="text" name="firstname" placeholder="First Name">
                     </div>
                     
                     <div class="div-input-field name-field" id="surname">
-                    <input type="text" name="surname" placeholder="Surname">
+                    <input class="short-input" type="text" name="surname" placeholder="Surname">
                     </div>
                    
                     <div class="div-input-field">
                     <i class="fa-solid fa-face-smile icon"></i>
-                    <input type="text" name="username" placeholder="Username">
+                    <input class="long-input" type="text" name="username" placeholder="Username">
                     </div>
                    
                     <div class="div-input-field">
                     <i class="fa-solid fa-envelope icon"></i>
-                    <input type="text" name="email" placeholder="Email">
+                    <input class="long-input" type="text" name="email" placeholder="Email">
                     </div>
 
                     <div class="div-input-field">
                     <i class="fa-solid fa-lock icon"></i>
-                    <input type="password" name="password" placeholder="Password">
+                    <input class="long-input" type="password" name="password" placeholder="Password">
                     </div>
 
                     <div id="registration-base">
@@ -52,12 +52,17 @@ const renderRegistrationForm = () => {
                 email: formData.get("email"),
                 password: formData.get("password")
             };
-            axios.post("api/signup", data).then(() => {
-                location = "/";
-            }).catch((err) => {
-            alert(err.response.data.message);
-            });
-        });
+
+            if (!data.firstname || !data.surname || !data.email || !data.password || !data.username) {
+                return alert( "one of the fields is empty");
+            } else {
+                axios.post("api/signup", data).then(() => {
+                    location = "/";
+                }).catch((err) => {
+                alert(err.response.data.message);
+                });
+            }});
+        
         page.replaceChildren(form);
     };
 
