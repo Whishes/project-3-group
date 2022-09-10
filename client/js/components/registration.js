@@ -12,26 +12,26 @@ const renderRegistrationForm = () => {
 
                     <div class="div-input-field name-field">
                     <i class="fa-solid fa-user icon"></i>
-                    <input class="short-input" type="text" name="firstname" placeholder="First Name">
+                    <input id="firstname-input" type="text" name="firstname" placeholder="First Name" required minlength="1">
                     </div>
                     
-                    <div class="div-input-field name-field" id="surname">
-                    <input class="short-input" type="text" name="surname" placeholder="Surname">
+                    <div class="div-input-field name-field" id="surname-div">
+                    <input id="surname-input" type="text" name="surname" placeholder="Surname" required minlength="1">
                     </div>
                    
                     <div class="div-input-field">
                     <i class="fa-solid fa-face-smile icon"></i>
-                    <input class="long-input" type="text" name="username" placeholder="Username">
+                    <input class="long-input" type="text" name="username" placeholder="Username" required minlength="3">
                     </div>
                    
                     <div class="div-input-field">
                     <i class="fa-solid fa-envelope icon"></i>
-                    <input class="long-input" type="text" name="email" placeholder="Email">
+                    <input class="long-input" type="email" name="email" placeholder="Email" required>
                     </div>
 
                     <div class="div-input-field">
                     <i class="fa-solid fa-lock icon"></i>
-                    <input class="long-input" type="password" name="password" placeholder="Password">
+                    <input class="long-input" type="password" name="password" placeholder="Password" required minlength="4">
                     </div>
 
                     <div id="registration-base">
