@@ -9,8 +9,9 @@ const logOut = () => {
 			console.log(err);
 		});
 };
+window.logOut = logOut;
 
-const renderHeader = (isLoggedIn, user) => {
+export const renderHeader = (isLoggedIn, user) => {
 	const header = document.getElementById("header-nav");
 	if (isLoggedIn) {
 		// if user is logged in
@@ -34,5 +35,3 @@ const renderHeader = (isLoggedIn, user) => {
     `;
 	}
 };
-
-module.exports = renderHeader;

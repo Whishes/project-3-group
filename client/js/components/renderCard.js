@@ -23,3 +23,5 @@ const renderCard = (holiday) => {
 
 	return cardContainer;
 };
+
+export default renderCard;

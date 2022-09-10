@@ -1,3 +1,5 @@
+import { renderHeader } from "./components/header.js";
+import { renderHomePage } from "./components/homePage.js";
 let isLoggedIn = false;
 
 // dummy data

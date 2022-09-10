@@ -1,4 +1,7 @@
-const renderHomePage = (isLoggedIn) => {
+import renderCard from "./renderCard.js";
+//window.renderNewTrip = renderNewTrip;
+
+export const renderHomePage = (isLoggedIn) => {
 	const sectionPage = document.getElementById("page");
 	const container = document.createElement("div");
 	container.id = "content-container";
@@ -20,7 +23,7 @@ const renderHomePage = (isLoggedIn) => {
 				});
 			})
 			.catch((err) => {
-				//alert("holidays api:", err);
+				//console.log("holidays api:", err);
 				container.innerHTML = `
 		<div>
 			<h1 id="oops">Oops! No content could be found...</h1>
