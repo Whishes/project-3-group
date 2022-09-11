@@ -39,7 +39,7 @@ export const renderRegistrationForm = () => {
             </form>
             
         </section>`;
-
+        
 	page.replaceChildren(formContainer);
 
 	const form = document.getElementById("registration-form");
