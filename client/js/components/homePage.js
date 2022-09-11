@@ -50,5 +50,5 @@ export const renderHomePage = (isLoggedIn) => {
 		// user isn't logged in
 		container.innerHTML = `<h2>User isn't logged in</h2>`;
 	}
-	sectionPage.appendChild(container);
+	sectionPage.replaceChildren(container);
 };
