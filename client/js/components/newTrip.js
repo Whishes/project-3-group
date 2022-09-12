@@ -1,7 +1,7 @@
 export const renderNewTrip = () => {
-    const page = document.getElementById("page");
+	const page = document.getElementById("page");
 
-    page.innerHTML = `
+	page.innerHTML = `
     <section id="newtrip">
     <form id="newtrip-form">
 
@@ -13,7 +13,7 @@ export const renderNewTrip = () => {
         </div>
 
         <div class="div-input-field">
-            <i class="fa-solid fa-image icon"></i>
+            <i class="fa-solid fa-earth-americas icon"></i>
             <input name="location_name" class="long-input" type="text" placeholder="Destination Name">
         </div>
 
@@ -40,48 +40,51 @@ export const renderNewTrip = () => {
     </section>
     `;
 
-    //makes the UI of the start/end dates more responsive
-    const dateInputs = document.querySelectorAll('.date-input');
+	//makes the UI of the start/end dates more responsive
+	const dateInputs = document.querySelectorAll(".date-input");
 
-    for (let input of dateInputs) {
-        input.addEventListener('focus', (event) => {
-            event.target.type = 'date';
-            event.target.showPicker();
-        });
-        input.addEventListener('blur', (event) => {
-            event.target.type = 'text';
-        });
-    }
+	for (let input of dateInputs) {
+		input.addEventListener("focus", (event) => {
+			event.target.type = "date";
+			event.target.showPicker();
+		});
+		input.addEventListener("blur", (event) => {
+			event.target.type = "text";
+		});
+	}
 
-    //code to post the form data
-    const newTripForm = document.querySelector('#newtrip-form');
+	//code to post the form data
+	const newTripForm = document.querySelector("#newtrip-form");
 
-    newTripForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const formData = new FormData(newTripForm);
-        const data = {
-            holiday_name: formData.get("holiday_name"),
-            date_start: formData.get("date_start"),
-            date_end: formData.get("date_end"),
-            location_name: formData.get("location_name"),
-            img_link: formData.get("img_link")
-        }
+	newTripForm.addEventListener("submit", (event) => {
+		event.preventDefault();
+		const formData = new FormData(newTripForm);
+		const data = {
+			holiday_name: formData.get("holiday_name"),
+			date_start: formData.get("date_start"),
+			date_end: formData.get("date_end"),
+			location_name: formData.get("location_name"),
+			img_link: formData.get("img_link"),
+		};
 
-        for(let value in data){
-            if(!value){
-                return alert("Please fill out entire form");
-            }
-        }
+		for (let value in data) {
+			if (!value) {
+				return alert("Please fill out entire form");
+			}
+		}
 
-        if(data.date_start >= data.date_end){
-            return alert("Ensure that your dates are correct");
-        }
+		if (data.date_start >= data.date_end) {
+			return alert("Ensure that your dates are correct");
+		}
 
-        axios.post("/api/holidays", data).then(() => {
-            location.href = "/";
-        }).catch((err) => {
-            return alert(err);
-            //errorBar(err.response.data.message, "error");   
-        });
-    });
-}
+		axios
+			.post("/api/holidays", data)
+			.then(() => {
+				location.href = "/";
+			})
+			.catch((err) => {
+				return alert(err);
+				//errorBar(err.response.data.message, "error");
+			});
+	});
+};
