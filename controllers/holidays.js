@@ -36,7 +36,7 @@ router.post("/", (req, res) => {
     //if you are working on the holidays page,
     //change this to a hard coded id
     //i.e. userId = 1;
-    const userId = 1;
+    const userId = req.session.userid;
 
     if (!userId) {
 		return res.status(401).send({ message: "Not logged in!" });
@@ -71,7 +71,7 @@ router.put("/:id", (req, res) => {
     //if you are working on the holidays page,
     //change this to a hard coded id
     //i.e. userId = 1;
-    const userId = 1;
+    const userId = req.session.userid;
 
     if (!userId) {
 		return res.status(401).send({ message: "Not logged in!" });
