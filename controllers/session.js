@@ -37,11 +37,12 @@ router.post("/", (req, res) => {
 router.get("/", (req, res) => {
 	//console.log("session");
 	const email = req.session.email;
+	const userId = req.session.userid;
 
-	if (!email) {
+	if (!email || !userId) {
 		return res.status(401).send({ message: "Not logged in" });
 	} else {
-		return res.json({ email: email });
+		return res.json({ id: userId, email: email });
 	}
 });
 

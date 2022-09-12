@@ -1,5 +1,6 @@
 import { renderHeader, logOut } from "./components/header.js";
 import { renderHomePage } from "./components/homePage.js";
+import { renderUserProfile } from "./components/profile.js";
 import { errorBar } from "./components/renderErrorBar.js";
 import { renderLoginForm } from "./components/loginForm.js";
 import { renderRegistrationForm } from "./components/registration.js";
@@ -10,6 +11,7 @@ import { deleteHoliday } from "./components/deleteHoliday.js";
 // global function imports
 window.errorBar = errorBar;
 window.logOut = logOut;
+window.renderUserProfile = renderUserProfile;
 window.renderLoginForm = renderLoginForm;
 window.renderRegistrationForm = renderRegistrationForm;
 window.renderHomePage = renderHomePage;
@@ -17,6 +19,7 @@ window.renderNewTrip = renderNewTrip;
 window.renderEditHolidayForm = renderEditHolidayForm;
 window.deleteHoliday = deleteHoliday;
 
+let isLoggedIn = false;
 // dummy data
 // const data = {
 // 	email: "janedoe@email.com",
@@ -25,7 +28,6 @@ window.deleteHoliday = deleteHoliday;
 
 const renderIndex = (loginPage = false) => {
 	let isLoggedIn = false;
-
 	axios
 		.get("/api/session")
 		.then((response) => {

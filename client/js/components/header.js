@@ -21,7 +21,7 @@ export const renderHeader = (isLoggedIn, user) => {
      <ul id="navlist">
 	 
         <button onClick="renderNewTrip()">New Trip</button>
-        <li><a onClick="renderProfile()">Profile</a></li>
+        <li><a onClick="renderUserProfile(${user.id})">Profile</a></li>
         <li><a onClick="logOut()">Logout</a></li>
      </ul>
     `;

@@ -1,8 +1,10 @@
+
 export const renderRegistrationForm = () => {
 	const page = document.getElementById("page");
 	const formContainer = document.createElement("div");
 	formContainer.id = "registration";
 	formContainer.innerHTML = `
+
             <form id="registration-form" action="">
 
                 <h2>Glad to have you here!</h2>
@@ -36,9 +38,7 @@ export const renderRegistrationForm = () => {
                         <span onclick="renderLoginForm()">Already have an account?</span> <button id="register-btn">Register</button> 
                     </div>
                   
-            </form>
-            
-        </section>`;
+            </form>`;
         
 	page.replaceChildren(formContainer);
 
