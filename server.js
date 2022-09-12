@@ -1,5 +1,6 @@
 // package imports
 const express = require("express");
+const nocache = require("nocache");
 require("dotenv").config();
 
 // file imports
@@ -27,6 +28,8 @@ app.use(
 		secret: process.env.EXPRESS_SESSION_SECRET_KEY,
 	})
 );
+app.use(nocache());
+app.set("etag", false);
 
 // serve the frontend
 app.use(express.json());
