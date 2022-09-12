@@ -7,8 +7,8 @@ const db = require("./database/db");
 const sessionController = require("./controllers/session");
 const signupController = require("./controllers/signup");
 const holidaysController = require("./controllers/holidays");
-
 const eventsController = require("./controllers/events");
+const holidayPartsController = require("./controllers/holidayparts");
 const { expressSession, pgSession } = require("./session");
 
 // express stuff
@@ -36,6 +36,7 @@ app.use(express.static("client"));
 app.use("/api/signup", signupController);
 app.use("/api/session", sessionController);
 app.use("/api/holidays", holidaysController);
+app.use("/api/holidayparts", holidayPartsController);
 
 app.use("/api/events", eventsController);
 

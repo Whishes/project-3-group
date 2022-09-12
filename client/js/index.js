@@ -7,6 +7,7 @@ import { renderRegistrationForm } from "./components/registration.js";
 import { renderNewTrip } from "./components/newTrip.js";
 import { renderEditHolidayForm } from "./components/editHoliday.js"
 import { deleteHoliday } from "./components/deleteHoliday.js";
+import { renderRegistrationForm } from "./components/registration.js";
 
 // global function imports
 window.errorBar = errorBar;
@@ -18,6 +19,9 @@ window.renderHomePage = renderHomePage;
 window.renderNewTrip = renderNewTrip;
 window.renderEditHolidayForm = renderEditHolidayForm;
 window.deleteHoliday = deleteHoliday;
+window.renderRegistrationForm = renderRegistrationForm;
+
+let isLoggedIn = false;
 
 let isLoggedIn = false;
 // dummy data
