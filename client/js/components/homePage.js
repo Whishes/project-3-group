@@ -16,7 +16,7 @@ export const renderHomePage = (isLoggedIn) => {
 				//console.log("holiday res:", response);
 				const data = response.data;
 				// check if there are tables in the array
-				if (response.status === 204) {
+				if (data.length === 0) {
 					container.innerHTML = `
 		<div>
 			<h1 id="oops">Oops! No content could be found...</h1>
@@ -50,5 +50,5 @@ export const renderHomePage = (isLoggedIn) => {
 		// user isn't logged in
 		container.innerHTML = `<h2>User isn't logged in</h2>`;
 	}
-	sectionPage.appendChild(container);
+	sectionPage.replaceChildren(container);
 };

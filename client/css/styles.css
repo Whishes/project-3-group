@@ -199,25 +199,160 @@ button:hover {
     color: var(--success);
 }
 
-@media only screen and (max-width: 800px) {
-  #content-container {
-    margin-top: 3em;
-  }
-
-  #error-bar {
-    width: 100%;
-  }
+/* styling for registration form below */
+#registration {
+    width: 500px;
+    margin-left: 150px;
+    /* margin-top: 150px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-/* styling for registration form below */
+/* top/heading of form */
+#registration > h2 {
+    padding-right: 80px;
+    padding-bottom: 5px;
+    font-size: 30px;
+}
 
-    #registration {
-        width: 500px;
-        margin-left: 150px;
-        margin-top: 150px;
-        flex-wrap: wrap;
+#registration > p {
+    /* padding-bottom: 20px; */
+    padding-left: 10px;
+    font-size: 20px;
+    color: var(--primary-font); 
+}
+
+/* div/input field styling */
+.div-input-field {
+    background-color: white;
+    border: 2px solid var(--secondary-theme);
+    border-radius: 2px;
+    height: 50px;
+    width: 416px;
+    margin: 10px 10px 10px 0px;
+}
+
+.div-input-field > .icon {
+    width: 50px;
+    background-color: white;
+    color: var(--secondary-theme);
+    text-align: center;
+}
+
+
+.div-input-field > input {
+    height: 50px;
+    border: none;
+}
+
+::placeholder {
+    font-family: 'Montserrat', sans-serif;
+}
+
+*:focus {
+    outline: none;
+}
+
+/* styling specific to long fields i.e. username, email, password */
+.div-input-field > .long-input {
+    width: 360px;
+}
+
+
+/* styling specific to first name and surname fields  */
+#name-container {
+    display: flex;
+}
+
+.name-field {
+    width: 199px;
+    display: inline-block;
+    margin-bottom: 0px;
+}
+
+#surname-div {
+    text-align: center;
+}
+
+.name-field > #firstname-input {
+    width: 143px;
+}
+
+.name-field > #surname-input {
+    width: 146px;
+    padding-left: 50px;
+}
+
+/* bottom of form/base */
+#registration-base {
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#registration-base > span {
+    padding-right: 40px;
+    margin-left: 2em;
+    margin-top: 20px;
+    color: var(--primary-font);
+    font-size: 15px;
+}
+
+#registration-base > span:hover {
+    cursor: pointer;
+}
+
+#register-btn {
+    height: 60px;
+    width: 160px;
+    text-align: center;
+    font-size: 20px;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 800px) {
+    #content-container {
+        margin-top: 3em;
     }
 
+    #error-bar {
+        width: 100%;
+    }
+
+    #registration {
+        margin-left: 0px;
+        align-items: center;
+    }
+
+    #registration-form {
+        width: 400px;
+    }
+
+    #registration-form > p{
+        align-self:flex-start;
+        margin-left: 1em;
+    }
+
+    .div-input-field {
+        margin-left: 0px;
+        margin-right: 0px;
+        width: max-content;
+    }
+
+    .div-input-field > .long-input {
+    width: 340px;
+    }
+
+    #name-container {
+        justify-content: space-between;
+    }
+    .name-field > #firstname-input {
+    width: 130px;
+    }
+}
 
     /* top/heading of form */
         #registration > h2 {
@@ -227,7 +362,7 @@ button:hover {
         }
 
         #registration > p {
-            /* padding-bottom: 20px; */
+            padding-bottom: 10px;
             padding-left: 10px;
             font-size: 20px;
             color: var(--primary-font); 
@@ -313,3 +448,50 @@ button:hover {
             text-align: center;
             font-size: 20px;
         }
+
+/* styling for new trip/holiday form below */
+
+#newtrip {
+    width: 500px;
+    margin-left: 150px;
+    margin-top: 150px;
+    flex-wrap: wrap;
+}
+
+#newtrip>h2 {
+    padding-right: 80px;
+    padding-bottom: 5px;
+    font-size: 30px;
+}
+
+#newtrip input {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#newtrip input:focus{
+    outline: none;
+}
+
+.date-field {
+    width: 199px;
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+
+.date-field input {
+    width: 140px;
+}
+
+#newtrip-base {
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#create {
+    width: 84%;
+    height: 60px;
+    text-align: center;
+    font-size: 20px;
+}

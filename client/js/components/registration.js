@@ -1,45 +1,48 @@
-const renderRegistrationForm = () => {
+
+export const renderRegistrationForm = () => {
 	const page = document.getElementById("page");
-	const form = document.createElement("form");
-	form.innerHTML = `
-        <section id="registration">
+	const formContainer = document.createElement("div");
+	formContainer.id = "registration";
+	formContainer.innerHTML = `
+
             <form id="registration-form" action="">
 
                 <h2>Glad to have you here!</h2>
                 <p>Register to continue</p>
-
-                <p id="error-msgs"></p>
-
-                    <div class="div-input-field name-field">
-                    <i class="fa-solid fa-user icon"></i>
-                    <input id="firstname-input" type="text" name="firstname" placeholder="First Name" required minlength="1">
+                    <div id="name-container">
+                        <div class="div-input-field name-field">
+                            <i class="fa-solid fa-user icon"></i>
+                            <input id="firstname-input" type="text" name="firstname" placeholder="First Name" required minlength="1">
+                        </div>
+                        
+                        <div class="div-input-field name-field" id="surname-div">
+                            <input id="surname-input" type="text" name="surname" placeholder="Surname" required minlength="1">
+                        </div>
                     </div>
-                    
-                    <div class="div-input-field name-field" id="surname-div">
-                    <input id="surname-input" type="text" name="surname" placeholder="Surname" required minlength="1">
+                    <div class="div-input-field">
+                        <i class="fa-solid fa-face-smile icon"></i>
+                        <input class="long-input" type="text" name="username" placeholder="Username" required minlength="3">
                     </div>
                    
                     <div class="div-input-field">
-                    <i class="fa-solid fa-face-smile icon"></i>
-                    <input class="long-input" type="text" name="username" placeholder="Username" required minlength="3">
-                    </div>
-                   
-                    <div class="div-input-field">
-                    <i class="fa-solid fa-envelope icon"></i>
-                    <input class="long-input" type="email" name="email" placeholder="Email" required>
+                        <i class="fa-solid fa-envelope icon"></i>
+                        <input class="long-input" type="email" name="email" placeholder="Email" required>
                     </div>
 
                     <div class="div-input-field">
-                    <i class="fa-solid fa-lock icon"></i>
-                    <input class="long-input" type="password" name="password" placeholder="Password" required minlength="4">
+                        <i class="fa-solid fa-lock icon"></i>
+                        <input class="long-input" type="password" name="password" placeholder="Password" required minlength="4">
                     </div>
 
                     <div id="registration-base">
-                    <span>Already have an account?</span> <button id="register">Register</button> 
+                        <span onclick="renderLoginForm()">Already have an account?</span> <button id="register-btn">Register</button> 
                     </div>
                   
             </form>`;
+        
+	page.replaceChildren(formContainer);
 
+	const form = document.getElementById("registration-form");
 	form.addEventListener("submit", (event) => {
 		event.preventDefault();
 		const formData = new FormData(form);
@@ -58,20 +61,17 @@ const renderRegistrationForm = () => {
 			!data.password ||
 			!data.username
 		) {
-			return alert("one of the fields is empty");
+			//return alert("one of the fields is empty");
+			return errorBar("Please ensure all fields aren't empty", "error");
 		} else {
 			axios
 				.post("api/signup", data)
 				.then(() => {
-					location = "/";
+					renderLoginForm(true);
 				})
 				.catch((err) => {
-					errorMsg.textContent = err.response.data.message;
+					errorBar(err.response.data.message, "error");
 				});
 		}
 	});
-
-	page.replaceChildren(form);
 };
-
-module.exports = renderRegistrationForm;

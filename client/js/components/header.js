@@ -30,7 +30,7 @@ export const renderHeader = (isLoggedIn, user) => {
 		header.innerHTML = `
      <h1><a href="/">Travel Diary</a></h1>
      <ul id="navlist">
-        <li><a href="login.html">Login</a></li>
+        <li><a onClick="renderLoginForm()">Login</a></li>
         <li><a onClick="renderRegistrationForm()">Register</a></li>
      </ul>
     `;
