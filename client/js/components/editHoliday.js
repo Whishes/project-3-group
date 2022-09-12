@@ -1,13 +1,12 @@
 export const renderEditHolidayForm = (holidayId) => {
     //get holiday data from api (to display into form)
-    axios.get(`/${holidayId}`).then((response) => {
+    axios.get(`/api/holidays/${holidayId}`).then((response) => {
         const holiday = response.data[0];
-    });
 
-    //display the form with the holiday data filled in
-    const page = document.getElementById("page");
+        //display the form with the holiday data filled in
+        const page = document.getElementById("page");
 
-    page.innerHTML = `
+        page.innerHTML = `
     <section id="editHoliday">
     <form id="editHoliday-form">
 
@@ -30,12 +29,12 @@ export const renderEditHolidayForm = (holidayId) => {
 
         <div class="div-input-field date-field">
             <i class="fa-solid fa-plane-departure icon"></i>
-            <input name="date_start" class="date-input" type="text" placeholder="Start Date"  value=${holiday.date_start}>
+            <input name="date_start" class="date-input" type="text" placeholder="Start Date"  value=${moment(holiday.date_start).format("YYYY-MM-DD")}>
         </div>
 
         <div class="div-input-field date-field">
             <i class="fa-solid fa-plane-arrival icon"></i>
-            <input name="date_end" class="date-input" type="text" placeholder="End Date"  value=${holiday.date_end}>
+            <input name="date_end" class="date-input" type="text" placeholder="End Date"  value=${moment(holiday.date_end).format("YYYY-MM-DD")}>
         </div>
 
         <div id="editHoliday-base">
@@ -46,48 +45,49 @@ export const renderEditHolidayForm = (holidayId) => {
     </section>
     `;
 
-    //makes the UI of the start/end dates more responsive
-    const dateInputs = document.querySelectorAll('.date-input');
+        //makes the UI of the start/end dates more responsive
+        const dateInputs = document.querySelectorAll('.date-input');
 
-    for (let input of dateInputs) {
-        input.addEventListener('focus', (event) => {
-            event.target.type = 'date';
-            event.target.showPicker();
-        });
-        input.addEventListener('blur', (event) => {
-            event.target.type = 'text';
-        });
-    }
-
-    //code to post the form data
-    const editHolidayForm = document.querySelector('#editHoliday-form');
-
-    editHolidayForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const formData = new FormData(editHolidayForm);
-        const data = {
-            holiday_name: formData.get("holiday_name"),
-            date_start: formData.get("date_start"),
-            date_end: formData.get("date_end"),
-            location_name: formData.get("location_name"),
-            img_link: formData.get("img_link")
+        for (let input of dateInputs) {
+            input.addEventListener('focus', (event) => {
+                event.target.type = 'date';
+                event.target.showPicker();
+            });
+            input.addEventListener('blur', (event) => {
+                event.target.type = 'text';
+            });
         }
 
-        for(let value in data){
-            if(!value){
-                return alert("Please fill out entire form");
+        //code to post the form data
+        const editHolidayForm = document.querySelector('#editHoliday-form');
+
+        editHolidayForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(editHolidayForm);
+            const data = {
+                holiday_name: formData.get("holiday_name"),
+                date_start: formData.get("date_start"),
+                date_end: formData.get("date_end"),
+                location_name: formData.get("location_name"),
+                img_link: formData.get("img_link")
             }
-        }
 
-        if(data.date_start >= data.date_end){
-            return alert("Ensure that your dates are correct");
-        }
+            for (let value in data) {
+                if (!value) {
+                    return alert("Please fill out entire form");
+                }
+            }
 
-        axios.put("/api/holidays", data).then(() => {
-            location.href = "/";
-        }).catch((err) => {
-            return alert(err);
-            //errorBar(err.response.data.message, "error");   
+            if (data.date_start >= data.date_end) {
+                return alert("Ensure that your dates are correct");
+            }
+
+            axios.put(`/api/holidays/${holidayId}`, data).then(() => {
+                location.href = "/";
+            }).catch((err) => {
+                return alert(err);
+                //errorBar(err.response.data.message, "error");   
+            });
         });
     });
 }

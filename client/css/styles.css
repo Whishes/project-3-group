@@ -481,7 +481,7 @@ button:hover {
     width: 140px;
 }
 
-#newtrip-base, #editholiday-base {
+#newtrip-base, #editHoliday-base {
     margin-top: 20px;
     display: flex;
     width: 100%;
