@@ -1,4 +1,4 @@
-const renderNewTrip = () => {
+export const renderNewTrip = () => {
     const page = document.getElementById("page");
 
     page.innerHTML = `
@@ -87,5 +87,3 @@ const renderNewTrip = () => {
         });
     });
 }
-
-module.exports = renderNewTrip;
