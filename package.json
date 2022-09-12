@@ -27,5 +27,8 @@
 		"jest-environment-jsdom": "^29.0.1",
 		"moment": "^2.29.4",
 		"nodemon": "^2.0.19"
+	},
+	"engines": {
+		"node": "16.16"
 	}
 }
