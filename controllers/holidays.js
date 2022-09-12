@@ -12,6 +12,17 @@ router.get("/", (req, res) => {
 	Holidays.getAllForUser(userId).then((holidayRows) => res.json(holidayRows));
 });
 
+router.get("/:id", (req, res) => {
+    const holidayId = req.params.id;
+	const userId = req.session.userid;
+
+	if (!userId) {
+		return res.status(401).send({ message: "Not logged in" });
+	}
+
+	Holidays.getOneForUser(holidayId, userId).then((holidayRows) => res.json(holidayRows));
+});
+
 router.delete("/:id", (req, res) => {
 	const holidayId = req.params.id;
 	Holidays.deleteOne(holidayId)
@@ -60,7 +71,7 @@ router.put("/:id", (req, res) => {
     //if you are working on the holidays page,
     //change this to a hard coded id
     //i.e. userId = 1;
-    const userId = req.session.id;
+    const userId = 1;
 
     if (!userId) {
 		return res.status(401).send({ message: "Not logged in!" });

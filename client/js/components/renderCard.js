@@ -10,13 +10,13 @@ const renderCard = (holiday) => {
 							<h2><a onClick="alert('render holiday_parts')">${holiday.holiday_name}</a></h2>
 							<h4>${holiday.location_name}</h4>
 							<p>${moment(holiday.date_start).format("MMM Do YY")} - ${moment(
-		holiday.date_start
+		holiday.date_end
 	).format("MMM Do YY")}</p>
 						</div>
 						<div class="btn-bottom">
-							<button id="edit-btn" onClick="alert('edit function')">Edit</button>
+							<button id="edit-btn" onClick="renderEditHolidayForm(${holiday.id})">Edit</button>
 							<div class="line"></div>
-							<button id="delete-btn" onClick="alert('delete function')">Delete</button>
+							<button id="delete-btn" onClick="deleteHoliday(${holiday.id})">Delete</button>
 						</div>
 					</div>
 					`;
