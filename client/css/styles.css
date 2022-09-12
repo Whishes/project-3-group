@@ -450,24 +450,24 @@ button:hover {
 
 /* styling for new trip/holiday form below */
 
-#newtrip {
+#newtrip, #editHoliday {
     width: 500px;
     margin-left: 150px;
     margin-top: 150px;
     flex-wrap: wrap;
 }
 
-#newtrip>h2 {
+#newtrip>h2, #editHoliday>h2 {
     padding-right: 80px;
     padding-bottom: 5px;
     font-size: 30px;
 }
 
-#newtrip input {
+#newtrip input, #editHoliday input {
     font-family: 'Montserrat', sans-serif;
 }
 
-#newtrip input:focus{
+#newtrip input:focus, #editHoliday input:focus{
     outline: none;
 }
 
@@ -481,14 +481,14 @@ button:hover {
     width: 140px;
 }
 
-#newtrip-base {
+#newtrip-base, #editholiday-base {
     margin-top: 20px;
     display: flex;
     width: 100%;
     margin-bottom: 15px;
 }
 
-#create {
+#create, #edit {
     width: 84%;
     height: 60px;
     text-align: center;

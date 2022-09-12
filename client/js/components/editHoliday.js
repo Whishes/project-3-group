@@ -8,8 +8,8 @@ export const renderEditHolidayForm = (holidayId) => {
     const page = document.getElementById("page");
 
     page.innerHTML = `
-    <section id="newtrip">
-    <form id="newtrip-form">
+    <section id="editHoliday">
+    <form id="editHoliday-form">
 
         <h2>Add a new holiday!</h2>
 
@@ -38,8 +38,8 @@ export const renderEditHolidayForm = (holidayId) => {
             <input name="date_end" class="date-input" type="text" placeholder="End Date"  value=${holiday.date_end}>
         </div>
 
-        <div id="newtrip-base">
-            <button id="create" type="submit">Confirm Edit</button>
+        <div id="editHoliday-base">
+            <button id="edit" type="submit">Confirm Edit</button>
         </div>
 
     </form>
@@ -60,11 +60,11 @@ export const renderEditHolidayForm = (holidayId) => {
     }
 
     //code to post the form data
-    const newTripForm = document.querySelector('#newtrip-form');
+    const editHolidayForm = document.querySelector('#editHoliday-form');
 
-    newTripForm.addEventListener('submit', (event) => {
+    editHolidayForm.addEventListener('submit', (event) => {
         event.preventDefault();
-        const formData = new FormData(newTripForm);
+        const formData = new FormData(editHolidayForm);
         const data = {
             holiday_name: formData.get("holiday_name"),
             date_start: formData.get("date_start"),
