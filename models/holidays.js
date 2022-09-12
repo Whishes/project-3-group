@@ -9,6 +9,10 @@ const Holidays = {
         const sql = `SELECT * FROM holidays WHERE id = $1`;
         return db.query(sql, [holidayId]).then((dbRes) =>  dbRes.rows );
     },
+    getOneForUser: (holidayId, userId) => {
+        const sql = `SELECT * FROM holidays WHERE id = $1 AND user_id = $2`;
+        return db.query(sql, [holidayId, userId]).then((dbRes) => dbRes.rows); 
+    },
     getAllForUser: (userId) => {
         const sql = `SELECT * FROM holidays WHERE user_id = $1`;
         return db.query(sql, [userId]).then((dbRes) => dbRes.rows); 
