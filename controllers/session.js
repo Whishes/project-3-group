@@ -18,8 +18,8 @@ router.post("/", (req, res) => {
 		const hashedPassword = user.password;
 
 		if (isValidPassword(password, hashedPassword)) {
+			req.session.userid = user.id;
 			req.session.email = email;
-			req.session.id = user.id;
 			return res.json({});
 		}
 		return res

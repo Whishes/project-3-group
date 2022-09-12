@@ -1,4 +1,4 @@
-const renderHeader = require("./header.js");
+import { renderHeader } from "./header.js";
 
 test("User not logged in: renderHeader should render a list with 2 items", () => {
 	document.body.innerHTML = `<header id="header-nav"></header>`;
@@ -30,5 +30,5 @@ test("User logged in: renderHeader should render a list with 4 items", () => {
 	expect(ul).not.toBe(null);
 
 	const listItemCount = ul.childElementCount;
-	expect(listItemCount).toBe(4);
+	expect(listItemCount).toBe(3);
 });
