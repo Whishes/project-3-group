@@ -1,10 +1,12 @@
 import { renderHeader, logOut } from "./components/header.js";
 import { renderHomePage } from "./components/homePage.js";
+import { renderUserProfile } from "./components/profile.js";
 import { errorBar } from "./components/renderErrorBar.js";
 
 // global function imports
 window.errorBar = errorBar;
 window.logOut = logOut;
+window.renderUserProfile = renderUserProfile;
 
 let isLoggedIn = false;
 
@@ -26,7 +28,7 @@ axios
 		// if user is logged in do this
 		isLoggedIn = true;
 		const user = response.data;
-
+		console.log(user);
 		renderHeader(isLoggedIn, user);
 		renderHomePage(isLoggedIn);
 	})
