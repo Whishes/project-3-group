@@ -43,8 +43,37 @@ router.delete("/:id", (req, res) => {
 	}
 
 	Events.deleteOne(eventId)
-		.then(() => res.json({ success: true }))
-		.catch((err) => res.status(500).json({ message: "Delete Unsuccessful" }));
+		.then(() => res.json({ message: "Event successfully deleted" }))
+		.catch(() => res.status(500).json({ message: "Delete Unsuccessful" }));
+});
+
+router.post("/", (req, res) => {
+	const userId = req.session.userid;
+	const { part_id, event_name, location_name, img_link, event_description } =
+		req.body;
+
+	if (!userId) {
+		return res.status(401).send({ message: "Not logged in" });
+	}
+
+	// check if all necessary fields have at least some sort of data in it
+	if (
+		!part_id ||
+		!event_name ||
+		!location_name ||
+		!img_link ||
+		!event_description
+	) {
+		return res.status(400).json({ message: "One of the fields is empty" });
+	}
+
+	Events.addOne(part_id, event_name, location_name, img_link, event_description)
+		.then(() => res.status(200).json({ message: "Event successfully created" }))
+		.catch(() =>
+			res
+				.status(500)
+				.json({ message: "Could not create the event. Try again later" })
+		);
 });
 
 module.exports = router;
