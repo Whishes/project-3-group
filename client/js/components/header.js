@@ -1,5 +1,3 @@
-import { errorBar } from "./renderErrorBar.js";
-
 export const logOut = () => {
 	axios
 		.delete("/api/session")
