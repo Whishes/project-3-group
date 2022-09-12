@@ -1,7 +1,7 @@
 const renderRegistrationForm = () => {
-    const page = document.getElementById("page");
-    const form = document.createElement("form");
-    form.innerHTML = `
+	const page = document.getElementById("page");
+	const form = document.createElement("form");
+	form.innerHTML = `
         <section id="registration">
             <form id="registration-form" action="">
 
@@ -38,35 +38,40 @@ const renderRegistrationForm = () => {
                     <span>Already have an account?</span> <button id="register">Register</button> 
                     </div>
                   
-            </form>
-            
-        </section>`
+            </form>`;
 
-        form.addEventListener("submit", (event) => {
-            event.preventDefault();
-            const formData = new FormData(form);
-            const data = {
-                firstname: formData.get("firstname"),
-                surname: formData.get("surname"),
-                username: formData.get("username"),
-                email: formData.get("email"),
-                password: formData.get("password")
-            };
+	form.addEventListener("submit", (event) => {
+		event.preventDefault();
+		const formData = new FormData(form);
+		const data = {
+			firstname: formData.get("firstname"),
+			surname: formData.get("surname"),
+			username: formData.get("username"),
+			email: formData.get("email"),
+			password: formData.get("password"),
+		};
 
-            if (!data.firstname || !data.surname || !data.email || !data.password || !data.username) {
-                return alert( "one of the fields is empty");
-            } else {
-                axios.post("api/signup", data).then(() => {
-                    location = "/";
-                }).catch((err) => {
-                errorMsg.textContent = err.response.data.message;
-                });
-            }});
-        
-        page.replaceChildren(form);
-    };
+		if (
+			!data.firstname ||
+			!data.surname ||
+			!data.email ||
+			!data.password ||
+			!data.username
+		) {
+			return alert("one of the fields is empty");
+		} else {
+			axios
+				.post("api/signup", data)
+				.then(() => {
+					location = "/";
+				})
+				.catch((err) => {
+					errorMsg.textContent = err.response.data.message;
+				});
+		}
+	});
 
-        
-       
+	page.replaceChildren(form);
+};
 
 module.exports = renderRegistrationForm;
