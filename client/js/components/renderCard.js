@@ -16,7 +16,7 @@ const renderCard = (holiday) => {
 						<div class="btn-bottom">
 							<button id="edit-btn" onClick="renderEditHolidayForm(${holiday.id})">Edit</button>
 							<div class="line"></div>
-							<button id="delete-btn" onClick="alert('delete function')">Delete</button>
+							<button id="delete-btn" onClick="deleteHoliday(${holiday.id})">Delete</button>
 						</div>
 					</div>
 					`;
