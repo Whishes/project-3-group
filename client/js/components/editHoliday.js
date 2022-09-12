@@ -83,7 +83,7 @@ export const renderEditHolidayForm = (holidayId) => {
             return alert("Ensure that your dates are correct");
         }
 
-        axios.post("/api/holidays", data).then(() => {
+        axios.put("/api/holidays", data).then(() => {
             location.href = "/";
         }).catch((err) => {
             return alert(err);
