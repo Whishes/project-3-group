@@ -1,4 +1,4 @@
-const renderNewTrip = () => {
+export const renderNewTrip = () => {
     const page = document.getElementById("page");
 
     page.innerHTML = `
@@ -60,8 +60,6 @@ const renderNewTrip = () => {
         event.preventDefault();
         const formData = new FormData(newTripForm);
         const data = {
-            //need to pass through user id here
-            user_id: 1,
             holiday_name: formData.get("holiday_name"),
             date_start: formData.get("date_start"),
             date_end: formData.get("date_end"),
@@ -87,5 +85,3 @@ const renderNewTrip = () => {
         });
     });
 }
-
-module.exports = renderNewTrip;

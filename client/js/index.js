@@ -3,6 +3,7 @@ import { renderHomePage } from "./components/homePage.js";
 import { errorBar } from "./components/renderErrorBar.js";
 import { renderLoginForm } from "./components/loginForm.js";
 import { renderRegistrationForm } from "./components/registration.js";
+import { renderNewTrip } from "./components/newTrip.js";
 
 // global function imports
 window.errorBar = errorBar;
@@ -10,6 +11,7 @@ window.logOut = logOut;
 window.renderLoginForm = renderLoginForm;
 window.renderRegistrationForm = renderRegistrationForm;
 window.renderHomePage = renderHomePage;
+window.renderNewTrip = renderNewTrip;
 
 // dummy data
 // const data = {
