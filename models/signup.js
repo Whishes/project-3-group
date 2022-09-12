@@ -15,12 +15,35 @@ const Signup = {
 			.catch((err) => err);
 	},
 	saveInfo: (userId, firstname, surname, username, email) => {
-		const sql =
-			"UPDATE users SET firstname=$2, surname=$3, username=$4, email=$5 WHERE id=$1";
+		const sql = `UPDATE users SET firstname=$2, surname=$3, username=$4, email=$5 WHERE id=$1`;
 		return db
 			.query(sql, [userId, firstname, surname, username, email])
 			.then((dbRes) => dbRes)
-			.catch((err) => err);
+			.catch((err) => {
+				return err;
+			});
+	},
+	checkUsername: (username) => {
+		const sql = "SELECT username FROM users WHERE username=$1";
+		return db
+			.query(sql, [username])
+			.then((dbRes) => {
+				return dbRes.rows;
+			})
+			.catch((err) => {
+				return err;
+			});
+	},
+	checkEmail: (email) => {
+		const sql = "SELECT email FROM users WHERE email=$1";
+		return db
+			.query(sql, [email])
+			.then((dbRes) => {
+				return dbRes.rows;
+			})
+			.catch((err) => {
+				return err;
+			});
 	},
 };
 

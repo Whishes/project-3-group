@@ -6,7 +6,11 @@ const Signup = require("../models/signup");
 // signup stuff
 router.post("/", (req, res) => {
 	// console.log(req.body)
-	const { firstname, surname, username, email, password } = req.body;
+	let { firstname, surname, username, email, password } = req.body;
+	firstname = firstname.toLowerCase();
+	surname = surname.toLowerCase();
+	username = username.toLowerCase();
+	email = email.toLowerCase();
 
 	if (!firstname || !surname || !email || !password || !username) {
 		return res.status(400).json({ message: "one of the fields is empty" });
@@ -48,7 +52,11 @@ router.get("/:userId", (req, res) => {
 router.put("/:userId", (req, res) => {
 	const savedId = req.session.userid;
 	const pathId = req.params.userId;
-	const { firstname, surname, username, email } = req.body;
+	let { firstname, surname, username, email } = req.body;
+	firstname = firstname.toLowerCase();
+	surname = surname.toLowerCase();
+	username = username.toLowerCase();
+	email = email.toLowerCase();
 
 	if (!savedId) {
 		return res.status(401).send({ message: "Not logged in" });
@@ -58,12 +66,36 @@ router.put("/:userId", (req, res) => {
 		return res.status(401).json({});
 	}
 
-	Signup.saveInfo(pathId, firstname, surname, username, email)
+	Signup.checkUsername(username)
 		.then((dbRes) => {
-			res.status(200).json({ message: "New user settings have been saved" });
-			//console.log(dbRes);
+			// check if the username exists in the table or if it's matching the current one then continue
+			if (dbRes.length == 0 || dbRes[0].username === username) {
+				Signup.checkEmail(email)
+					.then((data) => {
+						// check if the email exists in the table or if it's matching the current one then continue
+						if (data.length == 0 || data[0].email === email) {
+							Signup.saveInfo(pathId, firstname, surname, username, email)
+								.then((dbRes) => {
+									res
+										.status(200)
+										.json({ message: "New user settings have been saved" });
+								})
+								.catch((err) => res.status(500).json({ message: err }));
+						} else {
+							return res.status(400).json({ message: "email already exists" });
+						}
+					})
+					.catch((err) => {
+						//console.log(err);
+						return res.status(400).json({ message: err });
+					});
+			} else {
+				return res.status(400).json({ message: "username already exists" });
+			}
 		})
-		.catch((err) => res.status(500).json({ message: err }));
+		.catch((err) => {
+			return res.status(400).json({ message: err });
+		});
 });
 
 module.exports = router;

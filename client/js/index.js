@@ -28,7 +28,7 @@ axios
 		// if user is logged in do this
 		isLoggedIn = true;
 		const user = response.data;
-		console.log(user);
+		//console.log(user);
 		renderHeader(isLoggedIn, user);
 		renderHomePage(isLoggedIn);
 	})
