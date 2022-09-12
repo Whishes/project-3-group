@@ -7,6 +7,12 @@ const Session = require("../models/session");
 router.post("/", (req, res) => {
 	const { email, password } = req.body;
 
+	if (!email || !password) {
+		return res
+			.status(400)
+			.json({ message: "Email and/or password fields are empty" });
+	}
+
 	Session.login(email).then((userRows) => {
 		if (userRows.length !== 1) {
 			return res
