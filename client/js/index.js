@@ -2,13 +2,11 @@ import { renderHeader, logOut } from "./components/header.js";
 import { renderHomePage } from "./components/homePage.js";
 import { errorBar } from "./components/renderErrorBar.js";
 import { renderRegistrationForm } from "./components/registration.js";
-import { renderHolidayParts } from "./components/holiday-parts.js";
 
 // global function imports
 window.errorBar = errorBar;
 window.logOut = logOut;
 window.renderRegistrationForm = renderRegistrationForm;
-window.renderHolidayParts = renderHolidayParts;
 
 let isLoggedIn = false;
 
