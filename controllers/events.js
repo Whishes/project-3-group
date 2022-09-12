@@ -76,4 +76,52 @@ router.post("/", (req, res) => {
 		);
 });
 
+router.put("/:id", (req, res) => {
+	const userId = req.session.userid;
+	const eventId = req.params.id;
+	const { part_id, event_name, location_name, img_link, event_description } =
+		req.body;
+
+	if (!userId) {
+		return res.status(401).send({ message: "Not logged in" });
+	}
+
+	if (
+		!part_id ||
+		!event_name ||
+		!location_name ||
+		!img_link ||
+		!event_description
+	) {
+		return res.status(400).json({ message: "One of the fields is empty" });
+	}
+
+	// //console.log(
+	// 	eventId,
+	// 	part_id,
+	// 	event_name,
+	// 	location_name,
+	// 	img_link,
+	// 	event_description
+	// );
+
+	Events.editOne(
+		eventId,
+		part_id,
+		event_name,
+		location_name,
+		img_link,
+		event_description
+	)
+		.then((dbRes) => {
+			//console.log(dbRes);
+			res.status(200).json({ message: "Event successfully edited" });
+		})
+		.catch(() =>
+			res
+				.status(500)
+				.json({ message: "Changes could not be changed. Try again later" })
+		);
+});
+
 module.exports = router;

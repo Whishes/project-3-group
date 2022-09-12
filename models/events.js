@@ -27,6 +27,27 @@ const Events = {
 			.then((dbRes) => dbRes)
 			.catch((err) => err);
 	},
+	editOne: (
+		event_id,
+		part_id,
+		event_name,
+		location_name,
+		img_link,
+		event_description
+	) => {
+		const sql = `UPDATE events SET event_name = $1, location_name = $2, img_link = $3, event_description = $4 WHERE id = $5 AND part_id = $6`;
+		return db
+			.query(sql, [
+				event_name,
+				location_name,
+				img_link,
+				event_description,
+				event_id,
+				part_id,
+			])
+			.then((dbRes) => dbRes)
+			.catch((err) => err);
+	},
 };
 
 module.exports = Events;
