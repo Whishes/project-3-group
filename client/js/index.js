@@ -3,7 +3,7 @@ import { renderHomePage } from "./components/homePage.js";
 import { errorBar } from "./components/renderErrorBar.js";
 import { renderLoginForm } from "./components/loginForm.js";
 import { renderRegistrationForm } from "./components/registration.js";
-import { renderNewTrip } from "./components/renderNewTrip.js";
+import { renderNewTrip } from "./components/newTrip.js";
 
 // global function imports
 window.errorBar = errorBar;
