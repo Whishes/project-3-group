@@ -14,4 +14,16 @@ router.get("/", (req, res) => {
 	Events.getAll(part_id).then((eventRows) => res.json(eventRows));
 });
 
+router.get("/:id", (req, res) => {
+	const userId = req.session.userid;
+	const eventId = req.params.id;
+	//console.log(eventId);
+
+	if (!userId) {
+		return res.status(401).send({ message: "Not logged in" });
+	}
+
+	Events.getOne(eventId).then((eventRows) => res.json(eventRows));
+});
+
 module.exports = router;
