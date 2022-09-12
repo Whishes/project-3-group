@@ -10,7 +10,7 @@ const renderCard = (holiday) => {
 							<h2><a onClick="alert('render holiday_parts')">${holiday.holiday_name}</a></h2>
 							<h4>${holiday.location_name}</h4>
 							<p>${moment(holiday.date_start).format("MMM Do YY")} - ${moment(
-		holiday.date_start
+		holiday.date_end
 	).format("MMM Do YY")}</p>
 						</div>
 						<div class="btn-bottom">
