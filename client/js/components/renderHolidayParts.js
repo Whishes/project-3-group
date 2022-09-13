@@ -1,38 +1,15 @@
-const renderPartCard = (holidayPart) => {
-	const cardContainer = document.createElement("div");
-	cardContainer.className = "card-container";
-	cardContainer.innerHTML = `
-					<div class="card-top" onclick="alert('render events')">
-						<img alt=${holidayPart.location_name} src=${holidayPart.img_link}></img>
-					</div>
-					<div class="card-bottom">
-						<div>
-							<h2><a onClick="alert('render events')">${holidayPart.part_name}</a></h2>
-							<h4>${holidayPart.location_name}</h4>
-							<p>${moment(holidayPart.date_start).format("MMM Do YY")} - ${moment(
-holidayPart.date_end
-	).format("MMM Do YY")}</p>
-						</div>
-						<div class="btn-bottom">
-							<button id="edit-btn" onClick="renderEditHolidayPartForm(${holidayPart.id})">Edit</button>
-							<div class="line"></div>
-							<button id="delete-btn" onClick="deleteHolidayPart(${holidayPart.id})">Delete</button>
-						</div>
-					</div>
-					`;
 
-	return cardContainer;
-};
 
-export const renderHolidayParts = (holidayId) => {
+const renderHolidayParts = (itemId) => {
 	const sectionPage = document.getElementById("page");
 	const container = document.createElement("div");
 	container.id = "content-container";
 	// console.log(holidayId)
-    const data = {
-        holiday_id: holidayId
-    }
-   
+	
+	const data = { 
+		holiday_id: itemId 
+	} 
+
 	//
 	// if (isLoggedIn) {
 	// 	// user is logged in
@@ -40,7 +17,6 @@ export const renderHolidayParts = (holidayId) => {
 			.get("/api/holidayparts", { params: data })
 			.then((container.innerHTML = "<h1>Loading...</h1>"))
 			.then((response) => {
-			
 				container.innerHTML = "";
 				console.log("holiday parts res:", response);
 				const data = response.data;
@@ -57,8 +33,9 @@ export const renderHolidayParts = (holidayId) => {
 		`;
 				} else {
 					data.forEach((holidayPart) => {
-						// creates a card element using the holiday object passed as a parameter
-						const cardElement = renderPartCard(holidayPart);
+						console.log(holidayPart)
+						// creates a card element using the holiday part object passed as a parameter
+						const cardElement = renderCard(holidayPart);
 						container.appendChild(cardElement);
 					});
 				}
@@ -81,3 +58,5 @@ export const renderHolidayParts = (holidayId) => {
 	// }
 	sectionPage.replaceChildren(container);
 };
+
+export default renderHolidayParts;
