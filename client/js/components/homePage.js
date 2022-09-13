@@ -48,7 +48,29 @@ export const renderHomePage = (isLoggedIn) => {
 			});
 	} else {
 		// user isn't logged in
-		container.innerHTML = `<h2>User isn't logged in</h2>`;
+		container.innerHTML = `
+		<section>
+			<h1 id="oops">Create your own story!</h1>
+			<div id="cards-container">
+				<div class="home-containers" id="holiday-container">
+					<img src="../../images/holiday.png" alt="holiday card">
+					<p>All your holidays in one place!</p>
+				</div>
+				<i class="fa-solid fa-arrow-right fa-2xl"></i>
+				<div class="home-containers" id="part-container">
+				<img src="../../images/holiday_part.png" alt="holiday_part card">
+					<p>Separated however you want!</p>
+				</div>
+				<i class="fa-solid fa-arrow-right fa-2xl"></i>
+				<div class="home-containers" id="event-container">
+					<img src="../../images/holiday_part.png" alt="holiday_part card">
+					<p>Each event right at your fingertips!</p>
+				</div>
+			</div>
+		</section>
+		`;
 	}
 	sectionPage.replaceChildren(container);
+	const cards_container = document.getElementById("cards-container");
+	cards_container.style.display = "flex";
 };
