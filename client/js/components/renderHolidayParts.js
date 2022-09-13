@@ -28,7 +28,7 @@ export const renderHolidayParts = (holidayId) => {
 	const sectionPage = document.getElementById("page");
 	const container = document.createElement("div");
 	container.id = "content-container";
-
+	// console.log(holidayId)
     const data = {
         holiday_id: holidayId
     }
@@ -37,9 +37,10 @@ export const renderHolidayParts = (holidayId) => {
 	// if (isLoggedIn) {
 	// 	// user is logged in
 		axios
-			.get("/api/holidayparts", data)
+			.get("/api/holidayparts", { params: data })
 			.then((container.innerHTML = "<h1>Loading...</h1>"))
 			.then((response) => {
+			
 				container.innerHTML = "";
 				console.log("holiday parts res:", response);
 				const data = response.data;

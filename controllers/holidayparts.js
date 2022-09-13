@@ -3,12 +3,13 @@ const router = express.Router();
 const holidayParts = require("../models/holidayparts");
 
 router.get("/", (req, res) => {
+	// console.log(req.query)
 	const userId = req.session.userid;
-	const holidayId = req.body.holiday_id;
-
+	const holidayId = req.query.holiday_id;
 	if (!userId) {
 		return res.status(401).send({ message: "Not logged in" });
 	}
+	
 
 	holidayParts.getAll(holidayId)
 		.then((holidayPartsRows) => res.json(holidayPartsRows))

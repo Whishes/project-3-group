@@ -2,7 +2,7 @@ const db = require("../database/db.js");
 
 const holidayParts = {
     getAll: (holidayId) => {
-        const sql = 'SELECT * FROM holiday_parts WHERE holiday_id = $1';
+        const sql = `SELECT * FROM holiday_parts WHERE holiday_id = $1`;
         return db.query(sql, [holidayId]).then((dbRes) => dbRes.rows );
     },
     getOne: (holidayPartId) => {
@@ -15,7 +15,7 @@ const holidayParts = {
     },
     addOne: (holiday_id, part_name, date_start, date_end, location_name, img_link) => {
 		const sql =
-			"INSERT INTO holiday_parts (holiday_id, part_name, date_start, date_end, location_name, img_link) VALUES ($1, $2, $3, $4, $5, $6)";
+			`INSERT INTO holiday_parts (holiday_id, part_name, date_start, date_end, location_name, img_link) VALUES ($1, $2, $3, $4, $5, $6)`;
 		return db
 			.query(sql, [
 				holiday_id,
