@@ -4,13 +4,13 @@ const holidayParts = require("../models/holidayparts");
 
 router.get("/", (req, res) => {
 	const userId = req.session.userid;
-	const holiday_id = req.body.holiday_id;
+	const holidayId = req.body.holiday_id;
 
 	if (!userId) {
 		return res.status(401).send({ message: "Not logged in" });
 	}
 
-	holidayParts.getAll(holiday_id)
+	holidayParts.getAll(holidayId)
 		.then((holidayPartsRows) => res.json(holidayPartsRows))
 		.catch((err) => {
 			res.status(500).json({ message: "Could not get data" });

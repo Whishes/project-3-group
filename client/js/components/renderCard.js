@@ -1,13 +1,14 @@
 const renderCard = (holiday) => {
+	const holidayId = holiday.id;
 	const cardContainer = document.createElement("div");
 	cardContainer.className = "card-container";
 	cardContainer.innerHTML = `
-					<div class="card-top" onclick="alert('render holiday_parts')">
+					<div class="card-top" onclick="renderHolidayParts(${holidayId})">
 						<img alt=${holiday.location_name} src=${holiday.img_link}></img>
 					</div>
 					<div class="card-bottom">
 						<div>
-							<h2><a onClick="alert('render holiday_parts')">${holiday.holiday_name}</a></h2>
+							<h2><a onClick="renderHolidayParts(${holidayId})">${holiday.holiday_name}</a></h2>
 							<h4>${holiday.location_name}</h4>
 							<p>${moment(holiday.date_start).format("MMM Do YY")} - ${moment(
 		holiday.date_end
