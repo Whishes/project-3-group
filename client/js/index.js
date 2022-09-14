@@ -7,6 +7,7 @@ import { renderRegistrationForm } from "./components/registration.js";
 import { renderNewTrip } from "./components/newTrip.js";
 import { renderEditHolidayForm } from "./components/editHoliday.js";
 import { deleteHoliday } from "./components/deleteHoliday.js";
+import renderHolidayParts from "./components/renderHolidayParts.js";
 // import { renderHolidayParts } from "./components/renderHolidayParts.js";
 
 // global function imports
@@ -19,6 +20,7 @@ window.renderHomePage = renderHomePage;
 window.renderNewTrip = renderNewTrip;
 window.renderEditHolidayForm = renderEditHolidayForm;
 window.deleteHoliday = deleteHoliday;
+window.renderHolidayParts = renderHolidayParts;
 // window.renderHolidayParts = renderHolidayParts;
 
 let isLoggedIn = false;

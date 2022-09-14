@@ -1,28 +1,24 @@
-
 import renderHolidayParts from "./renderHolidayParts.js";
 
 const deleteFunction = (id, what, holidayId) => {
-	
 	if (what === "holiday") {
 		axios.delete(`/api/holidays/${id}`).then(() => {
 			location.href = "/";
 		});
 	} else if (what === "holiday_part") {
 		axios.delete(`/api/holidayparts/${id}`).then(() => {
-			renderHolidayParts(holidayId)
-		})
+			renderHolidayParts(holidayId);
+		});
 	}
-}
+};
 
-const editFunction = (id, what) => {
-
+const editFunction = (id, what, holidayId = null) => {
 	if (what === "holiday") {
-		renderEditHolidayForm(id, what)
+		renderEditHolidayForm(id, what);
 	} else if (what === "holiday_part") {
-		renderEditHolidayForm(id, what)
+		renderEditHolidayForm(id, what, holidayId);
 	}
-
-}
+};
 
 const renderCard = (dbData) => {
 	// console.log(dbData)
@@ -36,8 +32,8 @@ const renderCard = (dbData) => {
 						<div>
 							<h2><a class="card-title">${Object.values(dbData)[2]}</a></h2>
 							<h4>${dbData.location_name}</h4>
-							<p>${moment((dbData.date_start)).format("MMM Do YY")} - ${moment(
-								dbData.date_end
+							<p>${moment(dbData.date_start).format("MMM Do YY")} - ${moment(
+		dbData.date_end
 	).format("MMM Do YY")}</p>
 						</div>
 						<div class="btn-bottom">
@@ -46,46 +42,42 @@ const renderCard = (dbData) => {
 							<button id="delete-btn">Delete</button>
 						</div>
 					</div>
-					`;			
+					`;
 
 	const container = document.getElementById("content-container");
-	container.appendChild(cardContainer)
+	container.appendChild(cardContainer);
 
 	if (dbData.holiday_id) {
-		cardContainer.addEventListener("click", function(){
-			alert("Render events")
+		cardContainer.addEventListener("click", function () {
+			alert("Render events");
 		});
 
-		const deleteBtn = cardContainer.children[1].children[1].children[2]
-			
-			deleteBtn.addEventListener("click", function(){
-			deleteFunction(dbData.id, "holiday_part", dbData.holiday_id)
-			})
-		
-		const editBtn = cardContainer.children[1].children[1].children[0]
+		const deleteBtn = cardContainer.children[1].children[1].children[2];
 
-			editBtn.addEventListener("click", function(){
-			editFunction(dbData.id, "holiday_part", dbData.holiday_id)
-			})
+		deleteBtn.addEventListener("click", function () {
+			deleteFunction(dbData.id, "holiday_part", dbData.holiday_id);
+		});
 
+		const editBtn = cardContainer.children[1].children[1].children[0];
+
+		editBtn.addEventListener("click", function () {
+			editFunction(dbData.id, "holiday_part", dbData.holiday_id);
+		});
 	} else {
-		cardContainer.addEventListener("click", function(){
-			renderHolidayParts(dbData.id)
-			
+		cardContainer.addEventListener("click", function () {
+			renderHolidayParts(dbData.id);
 		});
-		const deleteBtn = cardContainer.children[1].children[1].children[2]
-			deleteBtn.addEventListener("click", function(){
-			deleteFunction(dbData.id, "holiday")
-			})
+		const deleteBtn = cardContainer.children[1].children[1].children[2];
+		deleteBtn.addEventListener("click", function () {
+			deleteFunction(dbData.id, "holiday");
+		});
 
-		const editBtn = cardContainer.children[1].children[1].children[0]
+		const editBtn = cardContainer.children[1].children[1].children[0];
 
-			editBtn.addEventListener("click", function(){
-			editFunction(dbData.id, "holiday")
-			})
+		editBtn.addEventListener("click", function () {
+			editFunction(dbData.id, "holiday");
+		});
 	}
-
-	
 };
 
 export default renderCard;
