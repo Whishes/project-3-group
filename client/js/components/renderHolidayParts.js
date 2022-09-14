@@ -1,19 +1,22 @@
 import renderCard from "./renderCard.js";
-//window.renderNewTrip = renderNewTrip;
 
-export const renderHomePage = (isLoggedIn) => {
+const renderHolidayParts = (itemId) => {
 	const sectionPage = document.getElementById("page");
 	const container = document.createElement("div");
 	container.id = "content-container";
-	//
-	if (isLoggedIn) {
-		// user is logged in
+	// console.log(holidayId)
+	
+	const data = { 
+		holiday_id: itemId 
+	} 
+
+
 		axios
-			.get("/api/holidays")
+			.get("/api/holidayparts", { params: data })
 			.then((container.innerHTML = "<h1>Loading...</h1>"))
 			.then((response) => {
 				container.innerHTML = "";
-				//console.log("holiday res:", response);
+				console.log("holiday parts res:", response);
 				const data = response.data;
 				// check if there are tables in the array
 				if (data.length === 0) {
@@ -27,13 +30,11 @@ export const renderHomePage = (isLoggedIn) => {
 		</div>
 		`;
 				} else {
-					data.forEach((holiday) => {
-						// creates a card element using the holiday object passed as a parameter
-						// const cardElement = renderCard(holiday);
-						renderCard(holiday)
-						// container.appendChild(cardElement);
+					data.forEach((holidayPart) => {
+						// console.log(holidayPart)
+						// creates a card element using the holiday part object passed as a parameter
+						renderCard(holidayPart);
 					});
-					
 				}
 			})
 			.catch((err) => {
@@ -48,9 +49,11 @@ export const renderHomePage = (isLoggedIn) => {
 		</div>
 		`;
 			});
-	} else {
+	// } else {
 		// user isn't logged in
 		container.innerHTML = `<h2>User isn't logged in</h2>`;
-	}
+	// }
 	sectionPage.replaceChildren(container);
 };
+
+export default renderHolidayParts;
