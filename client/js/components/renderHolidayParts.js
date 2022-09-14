@@ -10,9 +10,7 @@ const renderHolidayParts = (itemId) => {
 		holiday_id: itemId 
 	} 
 
-	//
-	// if (isLoggedIn) {
-	// 	// user is logged in
+
 		axios
 			.get("/api/holidayparts", { params: data })
 			.then((container.innerHTML = "<h1>Loading...</h1>"))
