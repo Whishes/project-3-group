@@ -1,4 +1,28 @@
+
 import renderHolidayParts from "./renderHolidayParts.js";
+
+const deleteFunction = (id, what, holidayId) => {
+	
+	if (what === "holiday") {
+		axios.delete(`/api/holidays/${id}`).then(() => {
+			location.href = "/";
+		});
+	} else if (what === "holiday_part") {
+		axios.delete(`/api/holidayparts/${id}`).then(() => {
+			renderHolidayParts(holidayId)
+		})
+	}
+}
+
+const editFunction = (id, what) => {
+
+	if (what === "holiday") {
+		renderEditHolidayForm(id, what)
+	} else if (what === "holiday_part") {
+		renderEditHolidayForm(id, what)
+	}
+
+}
 
 const renderCard = (dbData) => {
 	// console.log(dbData)
@@ -17,9 +41,9 @@ const renderCard = (dbData) => {
 	).format("MMM Do YY")}</p>
 						</div>
 						<div class="btn-bottom">
-							<button id="edit-btn" onClick="renderEditHolidayForm(${dbData.id})">Edit</button>
+							<button id="edit-btn">Edit</button>
 							<div class="line"></div>
-							<button id="delete-btn" onClick="deleteHoliday(${dbData.id})">Delete</button>
+							<button id="delete-btn">Delete</button>
 						</div>
 					</div>
 					`;			
@@ -32,10 +56,33 @@ const renderCard = (dbData) => {
 			alert("Render events")
 		});
 
+		const deleteBtn = cardContainer.children[1].children[1].children[2]
+			
+			deleteBtn.addEventListener("click", function(){
+			deleteFunction(dbData.id, "holiday_part", dbData.holiday_id)
+			})
+		
+		const editBtn = cardContainer.children[1].children[1].children[0]
+
+			editBtn.addEventListener("click", function(){
+			editFunction(dbData.id, "holiday_part", dbData.holiday_id)
+			})
+
 	} else {
 		cardContainer.addEventListener("click", function(){
 			renderHolidayParts(dbData.id)
+			
 		});
+		const deleteBtn = cardContainer.children[1].children[1].children[2]
+			deleteBtn.addEventListener("click", function(){
+			deleteFunction(dbData.id, "holiday")
+			})
+
+		const editBtn = cardContainer.children[1].children[1].children[0]
+
+			editBtn.addEventListener("click", function(){
+			editFunction(dbData.id, "holiday")
+			})
 	}
 
 	

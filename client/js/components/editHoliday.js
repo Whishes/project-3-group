@@ -1,4 +1,4 @@
-export const renderEditHolidayForm = (holidayId) => {
+export const renderEditHolidayForm = (holidayId, what) => {
 	//get holiday data from api (to display into form)
 	axios.get(`/api/holidays/${holidayId}`).then((response) => {
 		const holiday = response.data[0];
