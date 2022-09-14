@@ -1,4 +1,4 @@
-
+import renderCard from "./renderCard.js";
 
 const renderHolidayParts = (itemId) => {
 	const sectionPage = document.getElementById("page");
@@ -33,15 +33,14 @@ const renderHolidayParts = (itemId) => {
 		`;
 				} else {
 					data.forEach((holidayPart) => {
-						console.log(holidayPart)
+						// console.log(holidayPart)
 						// creates a card element using the holiday part object passed as a parameter
-						const cardElement = renderCard(holidayPart);
-						container.appendChild(cardElement);
+						renderCard(holidayPart);
 					});
 				}
 			})
 			.catch((err) => {
-				//console.log("holidays api:", err);
+				console.log("holidays api:", err);
 				container.innerHTML = `
 		<div>
 			<h1 id="oops">Oops! No content could be found...</h1>

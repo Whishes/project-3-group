@@ -1,20 +1,17 @@
 import renderHolidayParts from "./renderHolidayParts.js";
 
-const renderTest = () => {
-	console.log("render holiday parts")
-
-}
 
 const renderCard = (dbData) => {
+	// console.log(dbData)
 	const cardContainer = document.createElement("div");
 	cardContainer.className = "card-container";
 	cardContainer.innerHTML = `
-					<div class="card-top">
+					<div class="card-top" id="${dbData.id}">
 						<img alt=${Object.values(dbData)[5]} src=${Object.values(dbData)[6]}></img>
 					</div>
 					<div class="card-bottom">
 						<div>
-							<h2><a class="card-title">${Object.values(dbData)[2]}</a></h2>
+							<h2><a class="card-title" id="${dbData.id}">${Object.values(dbData)[2]}</a></h2>
 							<h4>${Object.values(dbData)[5]}</h4>
 							<p>${moment((Object.values(dbData)[3])).format("MMM Do YY")} - ${moment(
 								(Object.values(dbData)[4])
@@ -34,27 +31,33 @@ const renderCard = (dbData) => {
 	container.appendChild(cardContainer)
 
 	if (dbData.holiday_id) {
-		// Get both element IDs that has the onclicks 
 		const cardTop = Array.from(document.getElementsByClassName("card-top"));
 		const cardTitle = Array.from(document.getElementsByClassName("card-title"));
-		
+	
+		cardTop.forEach(top => top.addEventListener("click", function(){
+			const itemId = top.getAttribute("id")
+			alert(`Render events ${itemId}`)
+		}));
 
-		cardTop.forEach(top => top.addEventListener("click", renderTest));
-		cardTitle.forEach(title => title.addEventListener("click", renderTest));
-
-		// cardTop.forEach(top => top.addEventListener("click", renderHolidayParts(`${itemId}`)));
-		// cardTitle.forEach(title => title.addEventListener("click", renderHolidayParts(`${itemId}`)));
+		cardTitle.forEach(title => title.addEventListener("click", function(){
+			const itemId = title.getAttribute("id")
+			alert(`Render events ${itemId}`)
+		}));
 
 	} else {
-		const itemId = dbData.id;
 		const cardTop = Array.from(document.getElementsByClassName("card-top"));
 		const cardTitle = Array.from(document.getElementsByClassName("card-title"));
+	
+		cardTop.forEach(top => top.addEventListener("click", function(){
+			const itemId = top.getAttribute("id")
+			renderHolidayParts(itemId)
+		}));
 
-		cardTop.forEach(top => top.addEventListener("click", renderTest));
-		cardTitle.forEach(title => title.addEventListener("click", renderTest));
+		cardTitle.forEach(title => title.addEventListener("click", function(){
+			const itemId = title.getAttribute("id")
+			renderHolidayParts(itemId)
+		}));
 		
-		// cardTop.forEach(top => top.addEventListener("click", renderHolidayParts(`${itemId}`)));
-		// cardTitle.forEach(title => title.addEventListener("click", renderHolidayParts(`${itemId}`)));
 	}
 
 	
