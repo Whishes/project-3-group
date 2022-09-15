@@ -26,7 +26,7 @@ const renderHolidayParts = (itemId) => {
 			<h1 id="oops">Oops! No content could be found...</h1>
 			<div id="subheading-container">
 				<h2 id="subheading">Add new holiday part?</h2>
-				<button onClick="renderNewTrip('holiday_part', ${itemId})">New Trip</button>
+				<button onClick="renderNewTrip('holiday_part', ${itemId})">New holiday part</button>
 			</div>
 		</div>
 		`;
@@ -56,7 +56,7 @@ const renderHolidayParts = (itemId) => {
 			<h1 id="oops">Oops! No content could be found...</h1>
 			<div id="subheading-container">
 				<h2 id="subheading">Add new holiday part?</h2>
-				<button onClick="renderNewTrip('holiday_part', ${itemId})">New Trip</button>
+				<button onClick="renderNewTrip('holiday_part', ${itemId})">New Holiday Part</button>
 			</div>
 		</div>
 		`;

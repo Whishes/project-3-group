@@ -13,7 +13,7 @@ export const renderHomePage = (isLoggedIn) => {
 			.then((container.innerHTML = "<h1>Loading...</h1>"))
 			.then((response) => {
 				container.innerHTML = "";
-				//console.log("holiday res:", response);
+				// console.log("holiday res:", response);
 				const data = response.data;
 				// check if there are tables in the array
 				if (data.length === 0) {

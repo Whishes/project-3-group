@@ -1,3 +1,5 @@
+import renderHolidayParts from "./renderHolidayParts.js";
+
 export const renderNewTrip = (what, holidayId) => {
 	const page = document.getElementById("page");
 	
@@ -173,7 +175,7 @@ export const renderNewTrip = (what, holidayId) => {
 			axios
 				.post("/api/holidayparts", data)
 				.then(() => {
-					location.href = "/";
+					renderHolidayParts(holidayId)
 				})
 				.catch((err) => {
 					return alert(err);
