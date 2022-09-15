@@ -1,9 +1,7 @@
-import renderHolidayParts from "./renderHolidayParts.js";
-
 const deleteFunction = (id, what, holidayId) => {
 	if (what === "holiday") {
 		axios.delete(`/api/holidays/${id}`).then(() => {
-			location.href = "/";
+			renderHomePage(true);
 		});
 	} else if (what === "holiday_part") {
 		axios.delete(`/api/holidayparts/${id}`).then(() => {

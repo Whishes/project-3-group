@@ -21,15 +21,6 @@ window.renderNewTrip = renderNewTrip;
 window.renderEditHolidayForm = renderEditHolidayForm;
 window.deleteHoliday = deleteHoliday;
 window.renderHolidayParts = renderHolidayParts;
-// window.renderHolidayParts = renderHolidayParts;
-
-let isLoggedIn = false;
-
-// dummy data
-// const data = {
-// 	email: "janedoe@email.com",
-// 	password: "test",
-// };
 
 const renderIndex = (loginPage = false) => {
 	let isLoggedIn = false;
