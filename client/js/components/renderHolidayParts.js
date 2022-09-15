@@ -1,3 +1,4 @@
+import { renderNewTrip } from "./newTrip.js";
 import renderCard from "./renderCard.js";
 
 const renderHolidayParts = (itemId) => {
@@ -25,7 +26,7 @@ const renderHolidayParts = (itemId) => {
 			<h1 id="oops">Oops! No content could be found...</h1>
 			<div id="subheading-container">
 				<h2 id="subheading">Add new holiday part?</h2>
-				<button onClick="renderNewTrip()">New Trip</button>
+				<button onClick="renderNewTrip('holiday_part', ${itemId})">New Trip</button>
 			</div>
 		</div>
 		`;
@@ -36,10 +37,11 @@ const renderHolidayParts = (itemId) => {
 						renderCard(holidayPart);
 					});
 
+					//adding icon to add part below
 					const plusSign = document.createElement("div")
 					plusSign.className = "add-part-div"
 					plusSign.addEventListener("click", function() {
-						alert("Add Part")
+						renderNewTrip("holiday_part", itemId)
 					})
 					plusSign.innerHTML = `
 						<i class="fa-regular fa-square-plus" id="addPart"></i>
@@ -54,7 +56,7 @@ const renderHolidayParts = (itemId) => {
 			<h1 id="oops">Oops! No content could be found...</h1>
 			<div id="subheading-container">
 				<h2 id="subheading">Add new holiday part?</h2>
-				<button onClick="renderNewTrip()">New Trip</button>
+				<button onClick="renderNewTrip('holiday_part', ${itemId})">New Trip</button>
 			</div>
 		</div>
 		`;
