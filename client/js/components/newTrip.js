@@ -86,8 +86,7 @@ export const renderNewTrip = (what, holidayId) => {
 					location.href = "/";
 				})
 				.catch((err) => {
-					return alert(err);
-					//errorBar(err.response.data.message, "error");
+					errorBar("Something went wrong. Try again later", "error")
 				});
 		});
 	} else if (what === "holiday_part") {
@@ -178,8 +177,7 @@ export const renderNewTrip = (what, holidayId) => {
 					renderHolidayParts(holidayId)
 				})
 				.catch((err) => {
-					return alert(err);
-					//errorBar(err.response.data.message, "error");
+					errorBar("Something went wrong. Try again later", "error")
 				});
 		});
 	}
