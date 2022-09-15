@@ -2,12 +2,12 @@
 
 /* Color Themes */
 :root {
-    --primary-theme: #3CB043;
-    --primary-font: #FFFFFF;
-    --secondary-theme: #74330B;
-    --secondary-hover: #80471C;
-    --primary-error: #D10000;
-    --success: #5ee193;
+    --primary-theme: #fefbe9;  /*green*/
+    --primary-font: #183a1d; /*white*/
+    --secondary-theme: #f0a04b; /*brown*/
+    --secondary-hover: #f6c453; /*lighter brown*/
+    --primary-error: #183a1d; /*red*/
+    --success: #e1eedd; /*other green*/
 }
 
 * {
@@ -40,7 +40,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primary-font);
+    color: var(--primary-theme);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -56,6 +56,8 @@ button:hover {
     padding-right: 1em;
     align-items: center;
     justify-content: space-between;
+    background-color: var(--success);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
 #navlist {
@@ -116,8 +118,8 @@ button:hover {
     border-radius: 10px;
     width: 300px;
     height: 400px;
-    background-color: var(--primary-font);
-    color: var(--primary-theme);
+    background-color: var(--success);
+    color: var(--primary-font);
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     margin: 2em;
 }
@@ -137,9 +139,9 @@ button:hover {
     margin-right: 1em;
 }
 
-.card-bottom > div > h2 > a {
-    color: var(--primary-theme);
-}
+/* .card-bottom > div > h2 > a {
+    color: var(--primary-font);
+} */
 
 .btn-bottom {
     display: flex;
@@ -153,7 +155,7 @@ button:hover {
     width: 120px;
     height: 40px;
 
-    background-color: var(--primary-font);
+    background-color: var(--success);
     box-shadow: none;
     color: var(--secondary-theme);
 }
