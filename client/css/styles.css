@@ -194,7 +194,7 @@ button:hover {
 }
 
 .error {
-    color: var(--primary-error);
+    color: var(--secondary-theme);
 }
 
 .success {
