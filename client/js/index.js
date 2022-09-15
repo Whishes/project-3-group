@@ -10,6 +10,8 @@ import { deleteHoliday } from "./components/deleteHoliday.js";
 import renderHolidayParts from "./components/renderHolidayParts.js";
 // import { renderHolidayParts } from "./components/renderHolidayParts.js";
 
+console.log("HELLO!!!!");
+
 // global function imports
 window.errorBar = errorBar;
 window.logOut = logOut;
