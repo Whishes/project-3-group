@@ -1,12 +1,12 @@
-import { renderHeader, logOut } from "./components/header.js";
-import { renderHomePage } from "./components/homePage.js";
-import { renderUserProfile } from "./components/profile.js";
-import { errorBar } from "./components/renderErrorBar.js";
-import { renderLoginForm } from "./components/loginForm.js";
-import { renderRegistrationForm } from "./components/registration.js";
-import { renderNewTrip } from "./components/newTrip.js";
-import { renderEditHolidayForm } from "./components/editHoliday.js";
-import renderHolidayParts from "./components/renderHolidayParts.js";
+import { renderHeader, logOut } from "./js/components/header.js";
+import { renderHomePage } from "./js/components/homePage.js";
+import { renderUserProfile } from "./js/components/profile.js";
+import { errorBar } from "./js/components/renderErrorBar.js";
+import { renderLoginForm } from "./js/components/loginForm.js";
+import { renderRegistrationForm } from "./js/components/registration.js";
+import { renderNewTrip } from "./js/components/newTrip.js";
+import { renderEditHolidayForm } from "./js/components/editHoliday.js";
+import renderHolidayParts from "./js/components/renderHolidayParts.js";
 // import { renderHolidayParts } from "./components/renderHolidayParts.js";
 
 // global function imports
