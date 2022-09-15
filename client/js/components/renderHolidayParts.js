@@ -24,7 +24,7 @@ const renderHolidayParts = (itemId) => {
 		<div>
 			<h1 id="oops">Oops! No content could be found...</h1>
 			<div id="subheading-container">
-				<h2 id="subheading">Add new holiday?</h2>
+				<h2 id="subheading">Add new holiday part?</h2>
 				<button onClick="renderNewTrip()">New Trip</button>
 			</div>
 		</div>
@@ -35,6 +35,16 @@ const renderHolidayParts = (itemId) => {
 						// creates a card element using the holiday part object passed as a parameter
 						renderCard(holidayPart);
 					});
+
+					const plusSign = document.createElement("div")
+					plusSign.className = "add-part-div"
+					plusSign.addEventListener("click", function() {
+						alert("Add Part")
+					})
+					plusSign.innerHTML = `
+						<i class="fa-regular fa-square-plus" id="addPart"></i>
+					`
+					container.appendChild(plusSign)
 				}
 			})
 			.catch((err) => {
@@ -43,16 +53,13 @@ const renderHolidayParts = (itemId) => {
 		<div>
 			<h1 id="oops">Oops! No content could be found...</h1>
 			<div id="subheading-container">
-				<h2 id="subheading">Add new holiday?</h2>
+				<h2 id="subheading">Add new holiday part?</h2>
 				<button onClick="renderNewTrip()">New Trip</button>
 			</div>
 		</div>
 		`;
 			});
-	// } else {
-		// user isn't logged in
-		container.innerHTML = `<h2>User isn't logged in</h2>`;
-	// }
+	
 	sectionPage.replaceChildren(container);
 };
 
