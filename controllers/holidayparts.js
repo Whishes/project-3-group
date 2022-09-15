@@ -9,9 +9,9 @@ router.get("/", (req, res) => {
 	if (!userId) {
 		return res.status(401).send({ message: "Not logged in" });
 	}
-	
 
-	holidayParts.getAll(holidayId)
+	holidayParts
+		.getAll(holidayId)
 		.then((holidayPartsRows) => res.json(holidayPartsRows))
 		.catch((err) => {
 			res.status(500).json({ message: "Could not get data" });
@@ -26,7 +26,8 @@ router.get("/:id", (req, res) => {
 		return res.status(401).send({ message: "Not logged in" });
 	}
 
-	holidayParts.getOne(holidayPartId)
+	holidayParts
+		.getOne(holidayPartId)
 		.then((holidayPartsRows) => res.json(holidayPartsRows))
 		.catch((err) => {
 			res.status(500).json({ message: "Could not get data" });
@@ -41,7 +42,8 @@ router.delete("/:id", (req, res) => {
 		return res.status(401).send({ message: "Not logged in" });
 	}
 
-	holidayParts.deleteOne(holidayPartId)
+	holidayParts
+		.deleteOne(holidayPartId)
 		.then((holidayPartsRows) => res.json({ message: "Delete success" }))
 		.catch((err) => {
 			res.status(500).json({ message: "Delete failed" });
@@ -50,8 +52,15 @@ router.delete("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
 	const userId = req.session.userid;
-	const { holiday_id, part_name, date_start, date_end, location_name, img_link } =
-		req.body;
+	const {
+		holiday_id,
+		part_name,
+		date_start,
+		date_end,
+		location_name,
+		img_link,
+	} = req.body;
+	//console.log(req.data);
 
 	if (!userId) {
 		return res.status(401).send({ message: "Not logged in" });
@@ -69,7 +78,15 @@ router.post("/", (req, res) => {
 		return res.status(400).json({ message: "One of the fields is empty" });
 	}
 
-	holidayParts.addOne(holiday_id, part_name, date_start, date_end, location_name, img_link)
+	holidayParts
+		.addOne(
+			holiday_id,
+			part_name,
+			date_start,
+			date_end,
+			location_name,
+			img_link
+		)
 		.then(() => res.status(200).json({ message: "Event successfully created" }))
 		.catch(() =>
 			res
@@ -81,8 +98,15 @@ router.post("/", (req, res) => {
 router.put("/:id", (req, res) => {
 	const userId = req.session.userid;
 	const holiday_part_id = req.params.id;
-	const { holiday_id, part_name, date_start, date_end, location_name, img_link } =
-		req.body;
+	const {
+		holiday_id,
+		part_name,
+		date_start,
+		date_end,
+		location_name,
+		img_link,
+	} = req.body;
+	//console.log(req.body);
 
 	if (!userId) {
 		return res.status(401).send({ message: "Not logged in" });
@@ -99,18 +123,18 @@ router.put("/:id", (req, res) => {
 		return res.status(400).json({ message: "One of the fields is empty" });
 	}
 
-
-	holidayParts.editOne(
-		holiday_part_id,
-		holiday_id,
-		part_name,
-		date_start,
-		date_end,
-		location_name,
-		img_link
-	)
+	holidayParts
+		.editOne(
+			holiday_part_id,
+			holiday_id,
+			part_name,
+			date_start,
+			date_end,
+			location_name,
+			img_link
+		)
 		.then((dbRes) => {
-			//console.log(dbRes);
+			console.log(dbRes);
 			res.status(200).json({ message: "Holiday part successfully edited" });
 		})
 		.catch(() =>
