@@ -46,6 +46,7 @@ const renderCard = (dbData) => {
 	container.appendChild(cardContainer);
 
 	if (dbData.holiday_id) {
+		// if it's holiday parts section
 		cardContainer.addEventListener("click", function () {
 			alert("Render events");
 		});
@@ -62,6 +63,7 @@ const renderCard = (dbData) => {
 			editFunction(dbData.id, "holiday_part", dbData.holiday_id);
 		});
 	} else {
+		// if it's the base holiday section
 		cardContainer.addEventListener("click", function () {
 			renderHolidayParts(dbData.id);
 		});
