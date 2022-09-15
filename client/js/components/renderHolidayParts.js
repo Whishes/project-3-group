@@ -17,7 +17,7 @@ const renderHolidayParts = (itemId) => {
 			.then((container.innerHTML = "<h1>Loading...</h1>"))
 			.then((response) => {
 				container.innerHTML = "";
-				console.log("holiday parts res:", response);
+				// console.log("holiday parts res:", response);
 				const data = response.data;
 				// check if there are tables in the array
 				if (data.length === 0) {
