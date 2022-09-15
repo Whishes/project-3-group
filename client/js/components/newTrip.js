@@ -69,12 +69,12 @@ export const renderNewTrip = () => {
 
 		for (let value in data) {
 			if (!value) {
-				return alert("Please fill out entire form");
+				return errorBar("Please fill out the entire form", "error");
 			}
 		}
 
 		if (data.date_start >= data.date_end) {
-			return alert("Ensure that your dates are correct");
+			return errorBar("Ensure yhat your dates are correct", "error");
 		}
 
 		axios
@@ -83,8 +83,11 @@ export const renderNewTrip = () => {
 				location.href = "/";
 			})
 			.catch((err) => {
-				return alert(err);
-				//errorBar(err.response.data.message, "error");
+				if (err.response.data.message) {
+					errorBar(err.response.data.message, "error");
+				} else {
+					errorBar(err, "error");
+				}
 			});
 	});
 };

@@ -7,6 +7,8 @@ const deleteFunction = (id, what, holidayId) => {
 		axios.delete(`/api/holidayparts/${id}`).then(() => {
 			renderHolidayParts(holidayId);
 		});
+	} else {
+		errorBar("Something went wrong. Try again later", "error");
 	}
 };
 
@@ -18,7 +20,7 @@ const editFunction = (id, what, holidayId = null) => {
 	}
 };
 
-const renderCard = (dbData) => {
+export const renderCard = (dbData) => {
 	// console.log(dbData)
 	const cardContainer = document.createElement("div");
 	cardContainer.className = "card-container";
@@ -47,10 +49,6 @@ const renderCard = (dbData) => {
 
 	if (dbData.holiday_id) {
 		// if it's holiday parts section
-		cardContainer.addEventListener("click", function () {
-			alert("Render events");
-		});
-
 		const deleteBtn = cardContainer.children[1].children[1].children[2];
 
 		deleteBtn.addEventListener("click", function () {

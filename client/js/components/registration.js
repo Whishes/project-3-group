@@ -1,4 +1,3 @@
-
 export const renderRegistrationForm = () => {
 	const page = document.getElementById("page");
 	const formContainer = document.createElement("div");
@@ -39,7 +38,7 @@ export const renderRegistrationForm = () => {
                     </div>
                   
             </form>`;
-        
+
 	page.replaceChildren(formContainer);
 
 	const form = document.getElementById("registration-form");
@@ -70,7 +69,11 @@ export const renderRegistrationForm = () => {
 					renderLoginForm(true);
 				})
 				.catch((err) => {
-					errorBar(err.response.data.message, "error");
+					if (err.response.data.message) {
+						errorBar(err.response.data.message, "error");
+					} else {
+						errorBar(err, "error");
+					}
 				});
 		}
 	});

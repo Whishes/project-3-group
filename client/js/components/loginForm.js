@@ -48,8 +48,11 @@ export const renderLoginForm = (registered = false) => {
 				renderIndex(true);
 			})
 			.catch((err) => {
-				//console.log(err.response.data.message);
-				errorBar(err.response.data.message, "error");
+				if (err.response.data.message) {
+					errorBar(err.response.data.message, "error");
+				} else {
+					errorBar(err, "error");
+				}
 			});
 	});
 };

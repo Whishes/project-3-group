@@ -134,7 +134,7 @@ router.put("/:id", (req, res) => {
 			img_link
 		)
 		.then((dbRes) => {
-			console.log(dbRes);
+			//console.log(dbRes);
 			res.status(200).json({ message: "Holiday part successfully edited" });
 		})
 		.catch(() =>

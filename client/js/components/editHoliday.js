@@ -86,12 +86,12 @@ export const renderEditHolidayForm = (id, what, holidayId) => {
 
 				for (let value in data) {
 					if (!value) {
-						errorBar("Please fill out entire form", "error");
+						return errorBar("Please fill out entire form", "error");
 					}
 				}
 
 				if (data.date_start >= data.date_end) {
-					errorBar("Ensure that your dates are correct", "error");
+					return errorBar("Ensure that your dates are correct", "error");
 				}
 
 				axios
@@ -192,12 +192,12 @@ export const renderEditHolidayForm = (id, what, holidayId) => {
 
 				for (let value in data) {
 					if (!value) {
-						errorBar("Please fill out entire form", "error");
+						return errorBar("Please fill out entire form", "error");
 					}
 				}
 
 				if (data.date_start >= data.date_end) {
-					errorBar("Ensure that your dates are correct", "error");
+					return errorBar("Ensure that your dates are correct", "error");
 				}
 
 				axios
@@ -206,10 +206,15 @@ export const renderEditHolidayForm = (id, what, holidayId) => {
 						renderHolidayParts(holidayId);
 					})
 					.catch((err) => {
-						//console.log(err);
-						errorBar(err.response.data.message, "error");
+						if (err.response.data.message) {
+							errorBar(err.response.data.message, "error");
+						} else {
+							errorBar(err, "error");
+						}
 					});
 			});
 		});
+	} else {
+		errorBar("Something went wrong. Try again later", "error");
 	}
 };

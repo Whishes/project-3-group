@@ -3,7 +3,7 @@ export const logOut = () => {
 		.delete("/api/session")
 		.then((response) => {
 			//console.log(response);
-			location.href = "/";
+			renderIndex();
 		})
 		.catch((err) => {
 			errorBar("Log out unsuccessful", "error");

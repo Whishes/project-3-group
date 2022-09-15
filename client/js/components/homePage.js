@@ -30,14 +30,13 @@ export const renderHomePage = (isLoggedIn) => {
 					data.forEach((holiday) => {
 						// creates a card element using the holiday object passed as a parameter
 						// const cardElement = renderCard(holiday);
-						renderCard(holiday)
+						renderCard(holiday);
 						// container.appendChild(cardElement);
 					});
-					
 				}
 			})
 			.catch((err) => {
-				console.log("holidays api:", err);
+				//console.log("holidays api:", err);
 				container.innerHTML = `
 		<div>
 			<h1 id="oops">Oops! No content could be found...</h1>

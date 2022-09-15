@@ -71,11 +71,19 @@ export const renderUserProfile = (userId) => {
 					})
 					.catch((err) => {
 						//console.log(err);
-						errorBar(err.response.data.message, "error");
+						if (err.response.data.message) {
+							errorBar(err.response.data.message, "error");
+						} else {
+							errorBar(err, "error");
+						}
 					});
 			});
 		})
 		.catch((err) => {
-			errorBar(err.response.data.message, "error");
+			if (err.response.data.message) {
+				errorBar(err.response.data.message, "error");
+			} else {
+				errorBar(err, "error");
+			}
 		});
 };
