@@ -1,4 +1,4 @@
-import renderEvents from "./renderEvents";
+import renderEvents from "./renderEvents.js";
 
 const renderEventCard = (event) => {
     const eventCard = document.createElement("div");
@@ -31,7 +31,7 @@ const renderEventCard = (event) => {
     const editIcon = eventCard.children[0].children[1].children[1].children[0];
 
     editIcon.addEventListener("click", function() {
-        alert("editEvent");
+        alert("Edit the events");
     });
 
     const deleteIcon = eventCard.children[0].children[1].children[1].children[1];

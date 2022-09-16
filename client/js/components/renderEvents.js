@@ -22,7 +22,7 @@ const renderEvents = (itemId) => {
 			<h1 id="oops">Oops! No content could be found...</h1>
 			<div id="subheading-container">
 				<h2 id="subheading">Add new event?</h2>
-				<button onClick="alert(renderNewEvent(${itemId}))">New Event</button>
+				<button onClick="renderNewEvent(${itemId})">New Event</button>
 			</div>
 		</div>
 		`;
