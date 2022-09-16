@@ -144,7 +144,22 @@ export const renderNewTrip = (what, holidayId) => {
 			input.addEventListener("blur", (event) => {
 				event.target.type = "text";
 			});
-		}
+	});
+}
+
+  // back button code
+	const backBtn = document.createElement("i");
+	backBtn.className = "fa-solid fa-arrow-left";
+	backBtn.id = "backBtn";
+	backBtn.addEventListener("click", () => {
+		document.body.removeChild(backBtn);
+		renderHomePage(true);
+	});
+  
+	if (document.querySelector("#backBtn") !== null) {
+		document.body.removeChild(document.querySelector("#backBtn"));
+	}
+	document.body.appendChild(backBtn);
 
 		//code to post the form data
 		const newTripForm = document.querySelector("#newtrip-form");
