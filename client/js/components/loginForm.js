@@ -29,8 +29,8 @@ export const renderLoginForm = (registered = false) => {
 	backBtn.className = "fa-solid fa-arrow-left";
 	backBtn.id = "backBtn";
 	backBtn.addEventListener("click", () => {
-		renderHomePage(false);
 		document.body.removeChild(backBtn);
+		renderHomePage(false);
 	});
 	if (document.querySelector("#backBtn") !== null) {
 		document.body.removeChild(document.querySelector("#backBtn"));

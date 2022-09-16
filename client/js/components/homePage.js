@@ -5,6 +5,10 @@ export const renderHomePage = (isLoggedIn) => {
 	const sectionPage = document.getElementById("page");
 	const container = document.createElement("div");
 	container.id = "content-container";
+	if (document.querySelector("#backBtn") !== null) {
+		document.body.removeChild(document.querySelector("#backBtn"));
+	}
+
 	//
 	if (isLoggedIn) {
 		// user is logged in
