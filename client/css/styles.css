@@ -584,3 +584,8 @@ textarea {
     color: var(--secondary-theme);
     text-align: center;
 }
+
+.event-icon:hover {
+    color: var(--secondary-hover);
+    cursor: pointer;
+}

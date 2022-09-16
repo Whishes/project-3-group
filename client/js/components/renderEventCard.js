@@ -13,8 +13,8 @@ const renderEventCard = (event) => {
             <h4>${event.location_name}</h4>
         </div>
         <div class="event-icons">
-            <i class="fa-solid fa-pencil event-icon" onClick="alert(renderEditEvent)"></i>
-            <i class="fa-solid fa-xmark event-icon onClick="alert(deleteEvent)"></i>
+            <i class="fa-solid fa-pencil event-icon"></i>
+            <i class="fa-solid fa-xmark event-icon"></i>
         </div>
     </div>
     <div class="event-description">
@@ -29,13 +29,13 @@ const renderEventCard = (event) => {
     const editIcon = eventCard.children[0].children[1].children[1].children[0];
 
     editIcon.addEventListener("click", function() {
-        deleteFunction(dbData.id, "event")
+        alert("editEvent");
     });
 
-    const deleteIcon = eventCard.children[0].children[1].children[1].children[0];
+    const deleteIcon = eventCard.children[0].children[1].children[1].children[1];
 
     deleteIcon.addEventListener("click", function() {
-        editFunction(dbData.id, "event")
+        alert("deleteEvent");
     });
 }
 

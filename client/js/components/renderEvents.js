@@ -6,7 +6,7 @@ const renderEvents = (itemId) => {
 	container.id = "event-container";
 
     const partId = { 
-		parts_id: itemId 
+		part_id: itemId 
 	}
 
     axios
@@ -27,6 +27,8 @@ const renderEvents = (itemId) => {
 		</div>
 		`;
 				} else {
+					//clear the container
+					container.innerHTML = '';
 					data.forEach((event) => {
 						// creates a card element using the holiday part object passed as a parameter
 						renderEventCard(event);
@@ -41,6 +43,7 @@ const renderEvents = (itemId) => {
 					plusSign.innerHTML = `
 						<i class="fa-regular fa-square-plus" id="addPart"></i>
 					`
+					container.appendChild(plusSign);
 				}
 			})
 			.catch((err) => {
@@ -57,9 +60,9 @@ const renderEvents = (itemId) => {
 			});
 	// } else {
 		// user isn't logged in
-		container.innerHTML = `<h2>User isn't logged in</h2>`;
+		//container.innerHTML = `<h2>User isn't logged in</h2>`;
 	// }
-	sectionPage.replaceChildren(container);
+		sectionPage.replaceChildren(container);
     };
 
 export default renderEvents;

@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-=======
 
 import renderEvents from "./renderEvents.js";
 import renderHolidayParts from "./renderHolidayParts.js";
 
->>>>>>> renderEvents
 const deleteFunction = (id, what, holidayId) => {
 	if (what === "holiday") {
 		axios.delete(`/api/holidays/${id}`).then(() => {
