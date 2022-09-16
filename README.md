@@ -1,10 +1,6 @@
 # *Project-3* Travel Diary
 Group Members: Elise, Nick, Rob
 
-PLOOP
-
-BLOOP
-
 ## Can be found at:
 [Link to Project](https://wereallyouthere.herokuapp.com/)
 
@@ -22,6 +18,8 @@ BLOOP
 	3. `PORT`
 7.  If everything is successful, run `npm run dev` or `npm start` in the terminal
 
+
+
 ## Technologies Used:
 During this project the technologies that had been used were; 
 - VS Code
@@ -36,15 +34,28 @@ During this project the technologies that had been used were;
 
 ## Main Features
 - Login/Register
+- User profile
+- Create Trip (Holiday)
+- Create Destinations (Holiday Parts)
+- Create Activities (Events)
+- Content display that flows through data
+- Edit/Delete
 
 
 ## Ideal/Planned Features: 
+- [ ] Mobile responsiveness
 - [ ] Admin control panel
 - [ ] Dark/light mode
-- [ ] 
+- [ ] Social media features: landing page with other peoples holidays to view even when not logged in for ideas
+- [ ] Individual page (/username url) with edit/delete options if logged in, or without if viewing as other user. Others can click in to view
+- [ ] Google API for locations
+- [ ] Cloudinary image hosting
+- [ ] Group holiday planning features: add people to holiday, budgeting, etc
+
 
 ## Database Design 
 - See `database/schema.sql`
+
 
 ##  Acknowledgements
 - Staff at GA -
