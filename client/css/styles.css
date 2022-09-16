@@ -6,7 +6,7 @@
     --primary-font: #183a1d; /*white*/
     --secondary-theme: #f0a04b; /*brown*/
     --secondary-hover: #f6c453; /*lighter brown*/
-    --primary-error: #183a1d; /*red*/
+    --primary-error: #dc143c; /*red*/
     --success: #e1eedd; /*other green*/
 }
 
@@ -185,20 +185,21 @@ button:hover {
     position: absolute;
     width: 500px;
     height: 50px;
-    background-color: var(--primary-font);
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-
+    font-weight: 600;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .error {
-    color: var(--primary-error);
+    color: var(--success);
+    background-color: var(--primary-error);
 }
 
 .success {
     color: var(--success);
+    background-color: var(--primary-font);
 }
 
 /* styling for registration form below */
@@ -496,4 +497,17 @@ button:hover {
     height: 60px;
     text-align: center;
     font-size: 20px;
+}
+
+textarea {
+    font-family: 'Montserrat', sans-serif;
+    resize: none;
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.description-field {
+    height: 200px;
 }

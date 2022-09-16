@@ -51,6 +51,7 @@ router.post("/", (req, res) => {
 	const userId = req.session.userid;
 	const { part_id, event_name, location_name, img_link, event_description } =
 		req.body;
+	console.log(req.body);
 
 	if (!userId) {
 		return res.status(401).send({ message: "Not logged in" });
@@ -64,7 +65,7 @@ router.post("/", (req, res) => {
 		!img_link ||
 		!event_description
 	) {
-		return res.status(400).json({ message: "One of the fields is empty" });
+		return res.status(400).json({ message: "Please fill out all fields" });
 	}
 
 	Events.addOne(part_id, event_name, location_name, img_link, event_description)
