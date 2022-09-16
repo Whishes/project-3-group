@@ -19,14 +19,14 @@ const renderEvents = (itemId, holidayId) => {
 
 			// check if there are tables in the array
 			if (data.length === 0) {
-				const deez = createElement("div");
+				const deez = document.createElement("div");
 				deez.id = "content-container";
 				deez.innerHTML = `
 		<div>
 			<h1 id="oops">Oops! No content could be found...</h1>
 			<div id="subheading-container">
 				<h2 id="subheading">Add new event?</h2>
-				<button onClick="renderNewEvent(${itemId})">New Event</button>
+				<button onClick="renderNewEvent(${itemId}, ${holidayId})">New Event</button>
 			</div>
 		</div>
 		`;
@@ -61,7 +61,7 @@ const renderEvents = (itemId, holidayId) => {
 			<h1 id="oops">Oops! No content could be found...</h1>
 			<div id="subheading-container">
 				<h2 id="subheading">Add new event?</h2>
-				<button onClick="renderNewEvent(${itemId})">New Event</button>
+				<button onClick="renderNewEvent(${itemId}, ${holidayId})">New Event</button>
 			</div>
 		</div>
 		`;

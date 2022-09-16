@@ -70,7 +70,7 @@ const editEvent = (event_id, part_id, holidayId) => {
 				.put(`/api/events/${eventivity.id}`, data)
 				.then(() => {
 					//renderEventsPage(part_id);
-					renderEvents(eventivity.part_id);
+					renderEvents(part_id, holidayId);
 				})
 				.catch((err) => {
 					if (err.response.data.message) {
