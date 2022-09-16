@@ -50,6 +50,10 @@ button:hover {
     background-color: var(--secondary-hover);
 }
 
+input {
+    font-family: 'Montserrat', sans-serif;
+}
+
 #header-nav {
     height: 10vh;
     display: flex;
