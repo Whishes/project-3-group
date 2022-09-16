@@ -10,6 +10,8 @@ const deleteFunction = (id, what, holidayId) => {
 		axios.delete(`/api/holidayparts/${id}`).then(() => {
 			renderHolidayParts(holidayId);
 		});
+	} else {
+		console.log("something went wrong with the delete");
 	}
 };
 

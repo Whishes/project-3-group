@@ -51,6 +51,7 @@ export const renderHomePage = (isLoggedIn) => {
 		</div>
 		`;
 			});
+		sectionPage.replaceChildren(container);
 	} else {
 		// user isn't logged in
 		container.innerHTML = `
@@ -74,8 +75,8 @@ export const renderHomePage = (isLoggedIn) => {
 			</div>
 		</section>
 		`;
+		sectionPage.replaceChildren(container);
+		const cards_container = document.getElementById("cards-container");
+		cards_container.style.display = "flex";
 	}
-	sectionPage.replaceChildren(container);
-	const cards_container = document.getElementById("cards-container");
-	cards_container.style.display = "flex";
 };

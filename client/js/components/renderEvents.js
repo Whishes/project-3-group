@@ -67,10 +67,7 @@ const renderEvents = (itemId, holidayId) => {
 		`;
 			sectionPage.appendChild(deez);
 		});
-	// } else {
-	// user isn't logged in
-	//container.innerHTML = `<h2>User isn't logged in</h2>`;
-	// }
+
 	sectionPage.replaceChildren(container);
 
 	// back button code
