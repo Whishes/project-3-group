@@ -31,6 +31,16 @@ const renderEvents = (itemId) => {
 						// creates a card element using the holiday part object passed as a parameter
 						renderEventCard(event);
 					});
+
+					//adding icon to add part below
+					const plusSign = document.createElement("div")
+					plusSign.className = "add-part-div"
+					plusSign.addEventListener("click", function() {
+						alert('renderNewEvent');
+					})
+					plusSign.innerHTML = `
+						<i class="fa-regular fa-square-plus" id="addPart"></i>
+					`
 				}
 			})
 			.catch((err) => {

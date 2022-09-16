@@ -13,8 +13,8 @@ const renderEventCard = (event) => {
             <h4>${event.location_name}</h4>
         </div>
         <div class="event-icons">
-            <i class="fa-solid fa-pencil icon" onClick="alert(renderEditEvent)"></i>
-            <i class="fa-solid fa-xmark icon onClick="alert(deleteEvent)"></i>
+            <i class="fa-solid fa-pencil event-icon" onClick="alert(renderEditEvent)"></i>
+            <i class="fa-solid fa-xmark event-icon onClick="alert(deleteEvent)"></i>
         </div>
     </div>
     <div class="event-description">

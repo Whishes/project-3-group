@@ -548,3 +548,10 @@ button:hover {
     padding: 5px;
     margin: 5px;
 }
+
+.event-icon {
+    width: 50px;
+    background-color: var(--primary-font);
+    color: var(--secondary-theme);
+    text-align: center;
+}
