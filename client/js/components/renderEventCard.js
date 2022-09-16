@@ -1,3 +1,5 @@
+import renderEvents from "./renderEvents";
+
 const renderEventCard = (event) => {
     const eventCard = document.createElement("div");
     eventCard.className = "event-card";
@@ -35,8 +37,14 @@ const renderEventCard = (event) => {
     const deleteIcon = eventCard.children[0].children[1].children[1].children[1];
 
     deleteIcon.addEventListener("click", function() {
-        alert("deleteEvent");
+        deleteFunction(event.id, event.part_id);
     });
 }
+
+const deleteFunction = (id, holidayPartId) => {
+		axios.delete(`/api/events/${id}`).then(() => {
+			renderEvents(holidayPartId);
+		});
+    }
 
 export default renderEventCard;
