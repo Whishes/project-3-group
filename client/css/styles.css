@@ -35,6 +35,7 @@ a:hover {
 
 button {
     all: unset;
+    text-align: center;
     border-radius: 20px;
     background-color: var(--secondary-theme);
     display: flex;
@@ -510,4 +511,15 @@ textarea {
 
 .description-field {
     height: 200px;
+
+/* Add holiday part plus sign*/
+
+.add-part-div > #addPart {
+    font-size: 120px;
+    color: var(--primary-font);
+    margin-left: 50px;
+}
+
+.add-part-div > #addPart:hover {
+    color: var(--secondary-hover);
 }
