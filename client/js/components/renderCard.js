@@ -48,7 +48,7 @@ const renderCard = (dbData) => {
 	if (dbData.holiday_id) {
 		// if it's holiday parts section
 		cardContainer.addEventListener("click", function () {
-			alert("Render events");
+			console.log("render events")
 		});
 
 		const deleteBtn = cardContainer.children[1].children[1].children[2];

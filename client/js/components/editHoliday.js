@@ -11,7 +11,7 @@ export const renderEditHolidayForm = (id, what, holidayId) => {
     <section id="editHoliday">
     <form id="editHoliday-form">
 
-        <h2>Add a new holiday!</h2>
+        <h2>Edit ${holiday.holiday_name}</h2>
 
         <div class="div-input-field">
             <i class="fa-solid fa-suitcase icon"></i>
@@ -116,7 +116,7 @@ export const renderEditHolidayForm = (id, what, holidayId) => {
     <section id="editHoliday">
     <form id="editHoliday-form">
 
-        <h2>Add a new holiday!</h2>
+        <h2>Edit ${holiday.part_name}</h2>
 
         <div class="div-input-field">
             <i class="fa-solid fa-suitcase icon"></i>

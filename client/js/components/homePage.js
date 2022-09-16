@@ -13,7 +13,7 @@ export const renderHomePage = (isLoggedIn) => {
 			.then((container.innerHTML = "<h1>Loading...</h1>"))
 			.then((response) => {
 				container.innerHTML = "";
-				//console.log("holiday res:", response);
+				// console.log("holiday res:", response);
 				const data = response.data;
 				// check if there are tables in the array
 				if (data.length === 0) {
@@ -22,7 +22,7 @@ export const renderHomePage = (isLoggedIn) => {
 			<h1 id="oops">Oops! No content could be found...</h1>
 			<div id="subheading-container">
 				<h2 id="subheading">Add new holiday?</h2>
-				<button onClick="renderNewTrip()">New Trip</button>
+				<button onClick="renderNewTrip('holiday')">New Trip</button>
 			</div>
 		</div>
 		`;
@@ -43,7 +43,7 @@ export const renderHomePage = (isLoggedIn) => {
 			<h1 id="oops">Oops! No content could be found...</h1>
 			<div id="subheading-container">
 				<h2 id="subheading">Add new holiday?</h2>
-				<button onClick="renderNewTrip()">New Trip</button>
+				<button onClick="renderNewTrip('holiday')">New Trip</button>
 			</div>
 		</div>
 		`;
