@@ -9,7 +9,6 @@ import { renderNewTrip } from "./js/components/newTrip.js";
 import { renderEditHolidayForm } from "./js/components/editHoliday.js";
 import renderHolidayParts from "./js/components/renderHolidayParts.js";
 import { renderNewEvent } from "./js/components/newEvent.js";
-import { deleteHoliday } from "./components/deleteHoliday.js";
 
 // global function imports
 window.errorBar = errorBar;
@@ -22,7 +21,6 @@ window.renderNewTrip = renderNewTrip;
 window.renderEditHolidayForm = renderEditHolidayForm;
 window.renderHolidayParts = renderHolidayParts;
 window.renderNewEvent = renderNewEvent;
-window.deleteHoliday = deleteHoliday;
 
 let isLoggedIn = false;
 
