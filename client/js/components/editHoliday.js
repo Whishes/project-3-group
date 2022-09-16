@@ -70,6 +70,19 @@ export const renderEditHolidayForm = (id, what, holidayId) => {
 				});
 			}
 
+			// back button code
+			const backBtn = document.createElement("i");
+			backBtn.className = "fa-solid fa-arrow-left";
+			backBtn.id = "backBtn";
+			backBtn.addEventListener("click", () => {
+				document.body.removeChild(backBtn);
+				renderHomePage(true);
+			});
+			if (document.querySelector("#backBtn") !== null) {
+				document.body.removeChild(document.querySelector("#backBtn"));
+			}
+			document.body.appendChild(backBtn);
+
 			//code to post the form data
 			const editHolidayForm = document.querySelector("#editHoliday-form");
 
@@ -160,6 +173,19 @@ export const renderEditHolidayForm = (id, what, holidayId) => {
     </form>
     </section>
     `;
+
+			// back button code
+			const backBtn = document.createElement("i");
+			backBtn.className = "fa-solid fa-arrow-left";
+			backBtn.id = "backBtn";
+			backBtn.addEventListener("click", () => {
+				document.body.removeChild(backBtn);
+				renderHolidayParts(holidayId);
+			});
+			if (document.querySelector("#backBtn") !== null) {
+				document.body.removeChild(document.querySelector("#backBtn"));
+			}
+			document.body.appendChild(backBtn);
 
 			//makes the UI of the start/end dates more responsive
 			const dateInputs = document.querySelectorAll(".date-input");

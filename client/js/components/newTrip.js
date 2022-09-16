@@ -87,4 +87,17 @@ export const renderNewTrip = () => {
 				//errorBar(err.response.data.message, "error");
 			});
 	});
+
+	// back button code
+	const backBtn = document.createElement("i");
+	backBtn.className = "fa-solid fa-arrow-left";
+	backBtn.id = "backBtn";
+	backBtn.addEventListener("click", () => {
+		document.body.removeChild(backBtn);
+		renderHomePage(true);
+	});
+	if (document.querySelector("#backBtn") !== null) {
+		document.body.removeChild(document.querySelector("#backBtn"));
+	}
+	document.body.appendChild(backBtn);
 };

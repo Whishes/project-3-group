@@ -54,6 +54,7 @@ export const renderUserProfile = (userId) => {
 			backBtn.id = "backBtn";
 			backBtn.addEventListener("click", () => {
 				renderHomePage(true);
+				document.body.removeChild(backBtn);
 			});
 			if (document.querySelector("#backBtn") !== null) {
 				document.body.removeChild(document.querySelector("#backBtn"));
