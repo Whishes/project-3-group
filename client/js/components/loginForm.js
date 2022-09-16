@@ -24,6 +24,19 @@ export const renderLoginForm = (registered = false) => {
 `;
 	page.replaceChildren(formContainer);
 
+	// back button code
+	const backBtn = document.createElement("i");
+	backBtn.className = "fa-solid fa-arrow-left";
+	backBtn.id = "backBtn";
+	backBtn.addEventListener("click", () => {
+		renderHomePage(false);
+		document.body.removeChild(backBtn);
+	});
+	if (document.querySelector("#backBtn") !== null) {
+		document.body.removeChild(document.querySelector("#backBtn"));
+	}
+	document.body.appendChild(backBtn);
+
 	// success message if passed parameter is true
 	if (registered) {
 		errorBar("Register was successful", "success");

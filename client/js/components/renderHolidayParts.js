@@ -6,10 +6,10 @@ const renderHolidayParts = (itemId) => {
 	const container = document.createElement("div");
 	container.id = "content-container";
 	// console.log(holidayId)
-	
-	const data = { 
-		holiday_id: itemId 
-	} 
+
+	const data = {
+		holiday_id: itemId,
+	};
 
 
 		axios
@@ -63,6 +63,19 @@ const renderHolidayParts = (itemId) => {
 			});
 	
 	sectionPage.replaceChildren(container);
+
+	// back button code
+	const backBtn = document.createElement("i");
+	backBtn.className = "fa-solid fa-arrow-left";
+	backBtn.id = "backBtn";
+	backBtn.addEventListener("click", () => {
+		document.body.removeChild(backBtn);
+		renderHomePage(true);
+	});
+	if (document.querySelector("#backBtn") !== null) {
+		document.body.removeChild(document.querySelector("#backBtn"));
+	}
+	document.body.appendChild(backBtn);
 };
 
 export default renderHolidayParts;

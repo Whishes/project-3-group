@@ -48,6 +48,20 @@ export const renderUserProfile = (userId) => {
 `;
 			page.replaceChildren(formContainer);
 
+			// back button code
+			const backBtn = document.createElement("i");
+			backBtn.className = "fa-solid fa-arrow-left";
+			backBtn.id = "backBtn";
+			backBtn.addEventListener("click", () => {
+				renderHomePage(true);
+				document.body.removeChild(backBtn);
+			});
+			if (document.querySelector("#backBtn") !== null) {
+				document.body.removeChild(document.querySelector("#backBtn"));
+			}
+			document.body.appendChild(backBtn);
+
+			// form event listener
 			const form = document.getElementById("registration-form");
 			form.addEventListener("submit", (event) => {
 				event.preventDefault();

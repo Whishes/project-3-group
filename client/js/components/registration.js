@@ -1,4 +1,3 @@
-
 export const renderRegistrationForm = () => {
 	const page = document.getElementById("page");
 	const formContainer = document.createElement("div");
@@ -39,9 +38,23 @@ export const renderRegistrationForm = () => {
                     </div>
                   
             </form>`;
-        
+
 	page.replaceChildren(formContainer);
 
+	// back button code
+	const backBtn = document.createElement("i");
+	backBtn.className = "fa-solid fa-arrow-left";
+	backBtn.id = "backBtn";
+	backBtn.addEventListener("click", () => {
+		renderHomePage(false);
+		document.body.removeChild(backBtn);
+	});
+	if (document.querySelector("#backBtn") !== null) {
+		document.body.removeChild(document.querySelector("#backBtn"));
+	}
+	document.body.appendChild(backBtn);
+
+	// form code
 	const form = document.getElementById("registration-form");
 	form.addEventListener("submit", (event) => {
 		event.preventDefault();
