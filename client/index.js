@@ -1,3 +1,4 @@
+
 import { renderHeader, logOut } from "./js/components/header.js";
 import { renderHomePage } from "./js/components/homePage.js";
 import { renderUserProfile } from "./js/components/profile.js";
@@ -8,7 +9,7 @@ import { renderNewTrip } from "./js/components/newTrip.js";
 import { renderEditHolidayForm } from "./js/components/editHoliday.js";
 import renderHolidayParts from "./js/components/renderHolidayParts.js";
 import { renderNewEvent } from "./js/components/newEvent.js";
-// import { renderHolidayParts } from "./components/renderHolidayParts.js";
+import { deleteHoliday } from "./components/deleteHoliday.js";
 
 // global function imports
 window.errorBar = errorBar;
@@ -21,6 +22,15 @@ window.renderNewTrip = renderNewTrip;
 window.renderEditHolidayForm = renderEditHolidayForm;
 window.renderHolidayParts = renderHolidayParts;
 window.renderNewEvent = renderNewEvent;
+window.deleteHoliday = deleteHoliday;
+
+let isLoggedIn = false;
+
+// dummy data
+// const data = {
+// 	email: "janedoe@email.com",
+// 	password: "test",
+// };
 
 const renderIndex = (loginPage = false) => {
 	let isLoggedIn = false;
