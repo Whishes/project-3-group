@@ -523,6 +523,7 @@ textarea {
 
 .add-part-div > #addPart:hover {
     color: var(--secondary-hover);
+    cursor: pointer;
 }
 
 /* events styling */
