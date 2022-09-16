@@ -1,3 +1,7 @@
+
+import renderEvents from "./renderEvents.js";
+import renderHolidayParts from "./renderHolidayParts.js";
+
 const deleteFunction = (id, what, holidayId) => {
 	if (what === "holiday") {
 		axios.delete(`/api/holidays/${id}`).then(() => {
@@ -47,8 +51,8 @@ const renderCard = (dbData) => {
 
 	if (dbData.holiday_id) {
 		// if it's holiday parts section
-		cardContainer.addEventListener("click", function () {
-			console.log("render events")
+		cardContainer.addEventListener("click", function(){
+			renderEvents(dbData.id);
 		});
 
 		const deleteBtn = cardContainer.children[1].children[1].children[2];

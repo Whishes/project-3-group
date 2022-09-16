@@ -1,3 +1,5 @@
+import renderEvents from "./renderEvents.js";
+
 export const renderNewEvent = (part_id) => {
 	const page = document.getElementById("page");
 	page.innerHTML = `
@@ -57,7 +59,7 @@ export const renderNewEvent = (part_id) => {
 			.post("/api/events", data)
 			.then(() => {
 				//renderEventsPage(part_id);
-				alert(`renderEventsPage with id ${part_id}`);
+				renderEvents(part_id);
 			})
 			.catch((err) => {
 				if (err.response.data.message) {

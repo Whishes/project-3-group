@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 		return res.status(401).send({ message: "Not logged in" });
 	}
 
-	const part_id = req.body.part_id;
+	const part_id = req.query.part_id;
 
 	Events.getAll(part_id)
 		.then((eventRows) => res.json(eventRows))

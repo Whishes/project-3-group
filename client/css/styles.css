@@ -519,6 +519,7 @@ textarea {
 
 .description-field {
     height: 200px;
+}
 
 /* Add holiday part plus sign*/
 
@@ -530,6 +531,72 @@ textarea {
 
 .add-part-div > #addPart:hover {
     color: var(--secondary-hover);
+    cursor: pointer;
+}
+
+/* events styling */
+#event-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: fit-content;
+}
+.event-card {
+    border-radius: 10px;
+    width: 900px;
+    height: fit-content;
+    min-height: 325px;
+    background-color: var(--primary-font);
+    color: var(--primary-theme);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin: 2em 2em 2em 4em;
+    padding: 10px;
+}
+
+.event-card img{
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+
+    float: left;
+    margin: 5px;
+    text-align: justify;
+}
+
+.event-content {
+    height: fit-content;
+}
+
+.event-header {
+    padding: 10px;
+    margin: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.event-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.event-description {
+    padding: 5px;
+    margin: 5px;
+}
+
+.event-icon {
+    width: 50px;
+    background-color: var(--primary-font);
+    color: var(--secondary-theme);
+    text-align: center;
+}
+
+.event-icon:hover {
+    color: var(--secondary-hover);
+    cursor: pointer;
 }
 
 #backBtn {
