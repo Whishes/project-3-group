@@ -1,6 +1,6 @@
 import renderEvents from "./renderEvents.js";
 
-export const renderNewEvent = (part_id) => {
+export const renderNewEvent = (part_id, holidayId) => {
 	const page = document.getElementById("page");
 	page.innerHTML = `
     <section id="newtrip">
@@ -34,6 +34,20 @@ export const renderNewEvent = (part_id) => {
     </form>
     </section>
     `;
+
+	// back button code
+	const backBtn = document.createElement("i");
+	backBtn.className = "fa-solid fa-arrow-left";
+	backBtn.id = "backBtn";
+	backBtn.addEventListener("click", () => {
+		document.body.removeChild(backBtn);
+		renderEvents(part_id, holidayId);
+	});
+
+	if (document.querySelector("#backBtn") !== null) {
+		document.body.removeChild(document.querySelector("#backBtn"));
+	}
+	document.body.appendChild(backBtn);
 
 	//code to post the form data
 	const newTripForm = document.querySelector("#newtrip-form");

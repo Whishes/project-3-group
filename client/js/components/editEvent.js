@@ -1,11 +1,12 @@
-const editEvent = (event_id) => {
+import renderEvents from "./renderEvents.js";
 
-    axios.get(`/api/events/${event_id}`).then((response) => {
-        const eventivity = response.data[0];
-        // console.log(eventivity)
+const editEvent = (event_id, part_id, holidayId) => {
+	axios.get(`/api/events/${event_id}`).then((response) => {
+		const eventivity = response.data[0];
+		// console.log(eventivity)
 
-	const page = document.getElementById("page");
-	page.innerHTML = `
+		const page = document.getElementById("page");
+		page.innerHTML = `
     <section id="newtrip">
     <form id="newtrip-form">
         <h2>Edit "${eventivity.event_name}"</h2>
@@ -31,55 +32,55 @@ const editEvent = (event_id) => {
     </section>
     `;
 
-    // back button code
-			const backBtn = document.createElement("i");
-			backBtn.className = "fa-solid fa-arrow-left";
-			backBtn.id = "backBtn";
-			backBtn.addEventListener("click", () => {
-				document.body.removeChild(backBtn);
-				alert(`renderEventsPage with id ${eventivity.part_id}`);
-			});
-			if (document.querySelector("#backBtn") !== null) {
-				document.body.removeChild(document.querySelector("#backBtn"));
-			}
-			document.body.appendChild(backBtn);
+		// back button code
+		const backBtn = document.createElement("i");
+		backBtn.className = "fa-solid fa-arrow-left";
+		backBtn.id = "backBtn";
+		backBtn.addEventListener("click", () => {
+			document.body.removeChild(backBtn);
+			renderEvents(part_id, holidayId);
+		});
 
-	//code to post the form data
-	const newTripForm = document.querySelector("#newtrip-form");
-
-	newTripForm.addEventListener("submit", (event) => {
-		event.preventDefault();
-		const formData = new FormData(newTripForm);
-		const data = {
-			part_id: eventivity.part_id,
-			event_name: formData.get("event_name"),
-			location_name: formData.get("location_name"),
-			img_link: formData.get("img_link"),
-			event_description: formData.get("description"),
-		};
-
-		for (let value in data) {
-			if (!value) {
-				return errorBar("Please fill out entire form", "error");
-			}
+		if (document.querySelector("#backBtn") !== null) {
+			document.body.removeChild(document.querySelector("#backBtn"));
 		}
+		document.body.appendChild(backBtn);
 
-		axios
-			.put(`/api/events/${eventivity.id}`, data)
-			.then(() => {
-				//renderEventsPage(part_id);
-				alert(`renderEventsPage with id ${eventivity.part_id}`);
-			})
-			.catch((err) => {
-				if (err.response.data.message) {
-					errorBar(err.response.data.message, "error");
-				} else {
-					errorBar(err, "error");
+		//code to post the form data
+		const newTripForm = document.querySelector("#newtrip-form");
+
+		newTripForm.addEventListener("submit", (event) => {
+			event.preventDefault();
+			const formData = new FormData(newTripForm);
+			const data = {
+				part_id: eventivity.part_id,
+				event_name: formData.get("event_name"),
+				location_name: formData.get("location_name"),
+				img_link: formData.get("img_link"),
+				event_description: formData.get("description"),
+			};
+
+			for (let value in data) {
+				if (!value) {
+					return errorBar("Please fill out entire form", "error");
 				}
-			});
-	});
-});
+			}
 
+			axios
+				.put(`/api/events/${eventivity.id}`, data)
+				.then(() => {
+					//renderEventsPage(part_id);
+					renderEvents(eventivity.part_id);
+				})
+				.catch((err) => {
+					if (err.response.data.message) {
+						errorBar(err.response.data.message, "error");
+					} else {
+						errorBar(err, "error");
+					}
+				});
+		});
+	});
 };
 
 export default editEvent;

@@ -11,17 +11,16 @@ const renderHolidayParts = (itemId) => {
 		holiday_id: itemId,
 	};
 
-
-		axios
-			.get("/api/holidayparts", { params: data })
-			.then((container.innerHTML = "<h1>Loading...</h1>"))
-			.then((response) => {
-				container.innerHTML = "";
-				// console.log("holiday parts res:", response);
-				const data = response.data;
-				// check if there are tables in the array
-				if (data.length === 0) {
-					container.innerHTML = `
+	axios
+		.get("/api/holidayparts", { params: data })
+		.then((container.innerHTML = "<h1>Loading...</h1>"))
+		.then((response) => {
+			container.innerHTML = "";
+			// console.log("holiday parts res:", response);
+			const data = response.data;
+			// check if there are tables in the array
+			if (data.length === 0) {
+				container.innerHTML = `
 		<div>
 			<h1 id="oops">Oops! No content could be found...</h1>
 			<div id="subheading-container">
@@ -30,28 +29,28 @@ const renderHolidayParts = (itemId) => {
 			</div>
 		</div>
 		`;
-				} else {
-					data.forEach((holidayPart) => {
-						// console.log(holidayPart)
-						// creates a card element using the holiday part object passed as a parameter
-						renderCard(holidayPart);
-					});
+			} else {
+				data.forEach((holidayPart) => {
+					// console.log(holidayPart)
+					// creates a card element using the holiday part object passed as a parameter
+					renderCard(holidayPart);
+				});
 
-					//adding icon to add part below
-					const plusSign = document.createElement("div")
-					plusSign.className = "add-part-div"
-					plusSign.addEventListener("click", function() {
-						renderNewTrip("holiday_part", itemId)
-					})
-					plusSign.innerHTML = `
+				//adding icon to add part below
+				const plusSign = document.createElement("div");
+				plusSign.className = "add-part-div";
+				plusSign.addEventListener("click", function () {
+					renderNewTrip("holiday_part", itemId);
+				});
+				plusSign.innerHTML = `
 						<i class="fa-regular fa-square-plus" id="addPart"></i>
-					`
-					container.appendChild(plusSign)
-				}
-			})
-			.catch((err) => {
-				console.log("holidays api:", err);
-				container.innerHTML = `
+					`;
+				container.appendChild(plusSign);
+			}
+		})
+		.catch((err) => {
+			//console.log("holidays api:", err);
+			container.innerHTML = `
 		<div>
 			<h1 id="oops">Oops! No content could be found...</h1>
 			<div id="subheading-container">
@@ -60,8 +59,8 @@ const renderHolidayParts = (itemId) => {
 			</div>
 		</div>
 		`;
-			});
-	
+		});
+
 	sectionPage.replaceChildren(container);
 
 	// back button code
