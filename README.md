@@ -41,7 +41,6 @@ During this project the technologies that had been used were;
 ## Ideal/Planned Features: 
 - [ ] Admin control panel
 - [ ] Dark/light mode
-- [ ] 
 
 ## Database Design 
 - See `database/schema.sql`
