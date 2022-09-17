@@ -134,7 +134,6 @@ router.put("/:id", (req, res) => {
 			img_link
 		)
 		.then((dbRes) => {
-			console.log(dbRes);
 			res.status(200).json({ message: "Holiday part successfully edited" });
 		})
 		.catch(() =>
@@ -143,18 +142,5 @@ router.put("/:id", (req, res) => {
 				.json({ message: "Changes could not be changed. Try again later" })
 		);
 });
-
-//these are for testing via Postman
-// router.get("/getAll", (req, res) => {
-// 	holidayParts.getAll().then((holidayPartsRows) => res.json(holidayPartsRows));
-// });
-
-// router.get("/getOne/:id", (req, res) => {
-// 	holidayParts.getOne(req.params.id).then((holidayPartsRows) => res.json(holidayPartsRows));
-// });
-
-// router.get("/getAllForHoliday/:holidayId", (req, res) => {
-// 	holidayParts.getAllForHoliday(req.params.holidayId).then((holidayPartsRows) => res.json(holidayPartsRows));
-// });
 
 module.exports = router;

@@ -2,7 +2,7 @@ import renderHolidayParts from "./renderHolidayParts.js";
 
 export const renderNewTrip = (what, holidayId) => {
 	const page = document.getElementById("page");
-	
+
 	if (what === "holiday") {
 		page.innerHTML = `
 		<section id="newtrip">
@@ -56,6 +56,20 @@ export const renderNewTrip = (what, holidayId) => {
 			});
 		}
 
+		// back button code
+		const backBtn = document.createElement("i");
+		backBtn.className = "fa-solid fa-arrow-left";
+		backBtn.id = "backBtn";
+		backBtn.addEventListener("click", () => {
+			document.body.removeChild(backBtn);
+			renderHomePage(true);
+		});
+
+		if (document.querySelector("#backBtn") !== null) {
+			document.body.removeChild(document.querySelector("#backBtn"));
+		}
+		document.body.appendChild(backBtn);
+
 		//code to post the form data
 		const newTripForm = document.querySelector("#newtrip-form");
 
@@ -72,12 +86,12 @@ export const renderNewTrip = (what, holidayId) => {
 
 			for (let value in data) {
 				if (!value) {
-					errorBar("Please fill out entire form", "error");
+					return errorBar("Please fill out entire form", "error");
 				}
 			}
 
 			if (data.date_start >= data.date_end) {
-				errorBar("Ensure that your dates are correct", "error")
+				return errorBar("Ensure that your dates are correct", "error");
 			}
 
 			axios
@@ -144,22 +158,21 @@ export const renderNewTrip = (what, holidayId) => {
 			input.addEventListener("blur", (event) => {
 				event.target.type = "text";
 			});
-	});
-}
+		}
 
-  // back button code
-	const backBtn = document.createElement("i");
-	backBtn.className = "fa-solid fa-arrow-left";
-	backBtn.id = "backBtn";
-	backBtn.addEventListener("click", () => {
-		document.body.removeChild(backBtn);
-		renderHomePage(true);
-	});
-  
-	if (document.querySelector("#backBtn") !== null) {
-		document.body.removeChild(document.querySelector("#backBtn"));
-	}
-	document.body.appendChild(backBtn);
+		// back button code
+		const backBtn = document.createElement("i");
+		backBtn.className = "fa-solid fa-arrow-left";
+		backBtn.id = "backBtn";
+		backBtn.addEventListener("click", () => {
+			document.body.removeChild(backBtn);
+			renderHolidayParts(holidayId);
+		});
+
+		if (document.querySelector("#backBtn") !== null) {
+			document.body.removeChild(document.querySelector("#backBtn"));
+		}
+		document.body.appendChild(backBtn);
 
 		//code to post the form data
 		const newTripForm = document.querySelector("#newtrip-form");
@@ -178,18 +191,18 @@ export const renderNewTrip = (what, holidayId) => {
 
 			for (let value in data) {
 				if (!value) {
-					errorBar("Please fill out entire form", "error");
+					return errorBar("Please fill out entire form", "error");
 				}
 			}
 
 			if (data.date_start >= data.date_end) {
-				errorBar("Ensure that your dates are correct", "error")
+				return errorBar("Ensure that your dates are correct", "error");
 			}
 
 			axios
 				.post("/api/holidayparts", data)
 				.then(() => {
-					renderHolidayParts(holidayId)
+					renderHolidayParts(holidayId);
 				})
 				.catch((err) => {
 					errorBar(err.response.data.message, "error");

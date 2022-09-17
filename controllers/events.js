@@ -51,7 +51,7 @@ router.post("/", (req, res) => {
 	const userId = req.session.userid;
 	const { part_id, event_name, location_name, img_link, event_description } =
 		req.body;
-	console.log(req.body);
+	//console.log(req.body);
 
 	if (!userId) {
 		return res.status(401).send({ message: "Not logged in" });
