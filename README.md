@@ -51,6 +51,7 @@ During this project the technologies that had been used were;
 - [ ] Google API for locations
 - [ ] Cloudinary image hosting
 - [ ] Group holiday planning features: add people to holiday, budgeting, etc
+- [ ] Login using username or email
 
 
 ## Database Design 
