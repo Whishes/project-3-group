@@ -86,12 +86,12 @@ export const renderNewTrip = (what, holidayId) => {
 
 			for (let value in data) {
 				if (!value) {
-					errorBar("Please fill out entire form", "error");
+					return errorBar("Please fill out entire form", "error");
 				}
 			}
 
 			if (data.date_start >= data.date_end) {
-				errorBar("Ensure that your dates are correct", "error");
+				return errorBar("Ensure that your dates are correct", "error");
 			}
 
 			axios
@@ -191,12 +191,12 @@ export const renderNewTrip = (what, holidayId) => {
 
 			for (let value in data) {
 				if (!value) {
-					errorBar("Please fill out entire form", "error");
+					return errorBar("Please fill out entire form", "error");
 				}
 			}
 
 			if (data.date_start >= data.date_end) {
-				errorBar("Ensure that your dates are correct", "error");
+				return errorBar("Ensure that your dates are correct", "error");
 			}
 
 			axios
