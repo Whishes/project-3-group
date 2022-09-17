@@ -19,6 +19,7 @@ const renderEvents = (itemId, holidayId) => {
 
 			// check if there are tables in the array
 			if (data.length === 0) {
+				container.innerHTML = "";
 				const deez = document.createElement("div");
 				deez.id = "content-container";
 				deez.innerHTML = `
