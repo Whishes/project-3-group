@@ -38,13 +38,14 @@ const renderEventCard = (eventObj, part_id, holidayId) => {
 	const deleteIcon = eventCard.children[0].children[1].children[1].children[1];
 
 	deleteIcon.addEventListener("click", function () {
-		deleteFunction(eventObj.id, eventObj.part_id);
+		deleteFunction(eventObj.id, eventObj.part_id, holidayId);
 	});
 };
 
-const deleteFunction = (id, holidayPartId) => {
+const deleteFunction = (id, holidayPartId, holidayId) => {
 	axios.delete(`/api/events/${id}`).then(() => {
-		renderEvents(holidayPartId);
+        // console.log(` DELETE EVENT event id: ${id} part_id: ${holidayPartId} holiday_id: ${holidayId}`)
+		renderEvents(holidayPartId, holidayId);
 	});
 };
 

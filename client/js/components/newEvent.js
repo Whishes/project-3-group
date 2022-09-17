@@ -73,7 +73,7 @@ export const renderNewEvent = (part_id, holidayId) => {
 			.post("/api/events", data)
 			.then(() => {
 				//renderEventsPage(part_id);
-				renderEvents(part_id);
+				renderEvents(part_id, holidayId);
 			})
 			.catch((err) => {
 				if (err.response.data.message) {
